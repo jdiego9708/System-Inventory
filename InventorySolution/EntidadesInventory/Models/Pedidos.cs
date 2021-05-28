@@ -2,6 +2,7 @@
 {
     using EntidadesInventory.Helpers;
     using System;
+    using System.Collections.Generic;
     using System.Data;
 
     public class Pedidos
@@ -60,6 +61,8 @@
         public string Informacion_adicional { get; set; }
 
         public string Estado_pedido { get; set; }
+
+        public List<Detalle_pedido> Detalle_pedido { get; set; }
 
         public event EventHandler OnError;
     }

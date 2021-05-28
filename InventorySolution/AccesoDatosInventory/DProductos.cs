@@ -6,10 +6,10 @@
     using System.Data.SqlClient;
     using System.Threading.Tasks;
 
-    public class DUsuarios
+    public class DProductos
     {
         #region CONSTRUCTOR VACIO
-        public DUsuarios()
+        public DProductos()
         {
             this.SqlCon = new SqlConnection(Conexion.Cn);
             this.SqlCon.InfoMessage += new SqlInfoMessageEventHandler(SqlCon_InfoMessage);
@@ -41,10 +41,10 @@
         private readonly SqlConnection SqlCon;
         #endregion
 
-        #region METODO INSERTAR USUARIO
-        public async Task<(string rpta, int id_usuario)> InsertarUsuarios(Usuarios usuario)
+        #region METODO INSERTAR PRODUCTO
+        public async Task<(string rpta, int id)> InsertarProducto(Productos producto)
         {
-            int id_usuario = 0;
+            int id_producto = 0;
             int contador = 0;
             string rpta = string.Empty;          
 
@@ -55,91 +55,71 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Insertar_usuario",
+                    CommandText = "sp_Insertar_producto",
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter Id_usuario = new()
+                SqlParameter Id_producto = new()
                 {
-                    ParameterName = "@Id_usuario",
+                    ParameterName = "@Id_producto",
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Output
                 };
-                SqlCmd.Parameters.Add(Id_usuario);
+                SqlCmd.Parameters.Add(Id_producto);
 
-                SqlParameter Fecha_ingreso = new()
+                SqlParameter Id_tipo_producto = new()
                 {
-                    ParameterName = "@Fecha_ingreso",
-                    SqlDbType = SqlDbType.Date,
-                    Value = usuario.Fecha_ingreso,
+                    ParameterName = "@Id_tipo_producto",
+                    SqlDbType = SqlDbType.Int,
+                    Value = producto.Id_tipo_producto,
                 };
-                SqlCmd.Parameters.Add(Fecha_ingreso);
+                SqlCmd.Parameters.Add(Id_tipo_producto);
                 contador++;
 
                 SqlParameter Nombre_usuario = new()
                 {
-                    ParameterName = "@Nombre_usuario",
+                    ParameterName = "@Nombre_producto",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 50,
-                    Value = usuario.Nombre_usuario.Trim(),
+                    Value = producto.Nombre_producto.Trim(),
                 };
                 SqlCmd.Parameters.Add(Nombre_usuario);
                 contador++;
 
-                SqlParameter Telefono_usuario = new()
+                SqlParameter Precio_producto = new()
                 {
-                    ParameterName = "@Telefono_usuario",
+                    ParameterName = "@Precio_producto",
+                    SqlDbType = SqlDbType.Decimal,
+                    Value = producto.Precio_producto,
+                };
+                SqlCmd.Parameters.Add(Precio_producto);
+                contador++;
+
+                SqlParameter Descripcion_producto = new()
+                {
+                    ParameterName = "@Descripcion_producto",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 200,
+                    Value = producto.Descripcion_producto.ToUpper().Trim(),
+                };
+                SqlCmd.Parameters.Add(Descripcion_producto);
+                contador++;
+
+                SqlParameter Estado_producto = new()
+                {
+                    ParameterName = "@Estado_producto",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 50,
-                    Value = usuario.Telefono_usuario.Trim(),
+                    Value = producto.Estado_producto.ToUpper().Trim(),
                 };
-                SqlCmd.Parameters.Add(Telefono_usuario);
+                SqlCmd.Parameters.Add(Estado_producto);
                 contador++;
-
-                SqlParameter Identificacion_usuario = new()
-                {
-                    ParameterName = "@Identificacion_usuario",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 50,
-                    Value = usuario.Identificacion_usuario.ToUpper().Trim(),
-                };
-                SqlCmd.Parameters.Add(Identificacion_usuario);
-                contador++;
-
-                SqlParameter Email_usuario = new()
-                {
-                    ParameterName = "@Email_usuario",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 50,
-                    Value = usuario.Email_usuario.ToUpper().Trim(),
-                };
-                SqlCmd.Parameters.Add(Email_usuario);
-                contador++;
-
-                SqlParameter Id_tipo_usuario = new()
-                {
-                    ParameterName = "@Id_tipo_usuario",
-                    SqlDbType = SqlDbType.Int,
-                    Value = usuario.Id_tipo_usuario,
-                };
-                SqlCmd.Parameters.Add(Id_tipo_usuario);
-                contador++;
-
-                SqlParameter Estado_usuario = new()
-                {
-                    ParameterName = "@Estado_usuario",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 50,
-                    Value = usuario.Estado_usuario.ToUpper().Trim(),
-                };
-                SqlCmd.Parameters.Add(Estado_usuario);
-                contador++;
-
+                
                 SqlParameter Fecha = new()
                 {
                     ParameterName = "@Fecha",
                     SqlDbType = SqlDbType.Date,
-                    Value = usuario.Fecha_ingreso,
+                    Value = DateTime.Now.ToString("yyyy-MM-dd"),
                 };
                 SqlCmd.Parameters.Add(Fecha);
                 contador++;
@@ -150,7 +130,7 @@
                     SqlDbType = SqlDbType.Time,
                     Value = DateTime.Now.TimeOfDay,
                 };
-                SqlCmd.Parameters.Add(Estado_usuario);
+                SqlCmd.Parameters.Add(Hora);
                 contador++;
 
                 rpta = await SqlCmd.ExecuteNonQueryAsync() >= 1 ? "OK" : "NO";
@@ -164,7 +144,7 @@
                 }
                 else
                 {
-                    id_usuario = Convert.ToInt32(SqlCmd.Parameters["@Id_usuario"].Value);
+                    id_producto = Convert.ToInt32(SqlCmd.Parameters["@Id_producto"].Value);
                 }
             }
             catch (SqlException ex)
@@ -180,14 +160,13 @@
                 if (SqlCon.State == ConnectionState.Open)
                     SqlCon.Close();
             }
-            return (rpta, id_usuario);
+            return (rpta, id_producto);
         }
         #endregion
 
-        #region METODO EDITAR USUARIO
-        public async Task<(string rpta, int id_usuario)> EditarUsuarios(Usuarios usuario)
+        #region METODO EDITAR PRODUCTO
+        public async Task<string> EditarProducto(Productos producto)
         {
-            int id_usuario = 0;
             int contador = 0;
             string rpta = string.Empty;
 
@@ -198,91 +177,71 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Editar_usuario",
+                    CommandText = "sp_Insertar_producto",
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter Id_usuario = new()
+                SqlParameter Id_producto = new()
                 {
-                    ParameterName = "@Id_usuario",
+                    ParameterName = "@Id_producto",
                     SqlDbType = SqlDbType.Int,
-                    Value = usuario.Id_usuario,
+                    Value = producto.Id_producto,
                 };
-                SqlCmd.Parameters.Add(Id_usuario);
+                SqlCmd.Parameters.Add(Id_producto);
 
-                SqlParameter Fecha_ingreso = new()
+                SqlParameter Id_tipo_producto = new()
                 {
-                    ParameterName = "@Fecha_ingreso",
-                    SqlDbType = SqlDbType.Date,
-                    Value = usuario.Fecha_ingreso,
+                    ParameterName = "@Id_tipo_producto",
+                    SqlDbType = SqlDbType.Int,
+                    Value = producto.Id_tipo_producto,
                 };
-                SqlCmd.Parameters.Add(Fecha_ingreso);
+                SqlCmd.Parameters.Add(Id_tipo_producto);
                 contador++;
 
                 SqlParameter Nombre_usuario = new()
                 {
-                    ParameterName = "@Nombre_usuario",
+                    ParameterName = "@Nombre_producto",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 50,
-                    Value = usuario.Nombre_usuario.Trim(),
+                    Value = producto.Nombre_producto.Trim(),
                 };
                 SqlCmd.Parameters.Add(Nombre_usuario);
                 contador++;
 
-                SqlParameter Telefono_usuario = new()
+                SqlParameter Precio_producto = new()
                 {
-                    ParameterName = "@Telefono_usuario",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 50,
-                    Value = usuario.Telefono_usuario.Trim(),
+                    ParameterName = "@Precio_producto",
+                    SqlDbType = SqlDbType.Decimal,
+                    Value = producto.Precio_producto,
                 };
-                SqlCmd.Parameters.Add(Telefono_usuario);
+                SqlCmd.Parameters.Add(Precio_producto);
                 contador++;
 
-                SqlParameter Identificacion_usuario = new()
+                SqlParameter Descripcion_producto = new()
                 {
-                    ParameterName = "@Identificacion_usuario",
+                    ParameterName = "@Descripcion_producto",
                     SqlDbType = SqlDbType.VarChar,
-                    Size = 50,
-                    Value = usuario.Identificacion_usuario.ToUpper().Trim(),
+                    Size = 200,
+                    Value = producto.Descripcion_producto.ToUpper().Trim(),
                 };
-                SqlCmd.Parameters.Add(Identificacion_usuario);
+                SqlCmd.Parameters.Add(Descripcion_producto);
                 contador++;
 
-                SqlParameter Email_usuario = new()
+                SqlParameter Estado_producto = new()
                 {
-                    ParameterName = "@Email_usuario",
+                    ParameterName = "@Estado_producto",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 50,
-                    Value = usuario.Email_usuario.ToUpper().Trim(),
+                    Value = producto.Estado_producto.ToUpper().Trim(),
                 };
-                SqlCmd.Parameters.Add(Email_usuario);
-                contador++;
-
-                SqlParameter Id_tipo_usuario = new()
-                {
-                    ParameterName = "@Id_tipo_usuario",
-                    SqlDbType = SqlDbType.Int,
-                    Value = usuario.Id_tipo_usuario,
-                };
-                SqlCmd.Parameters.Add(Id_tipo_usuario);
-                contador++;
-
-                SqlParameter Estado_usuario = new()
-                {
-                    ParameterName = "@Estado_usuario",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 50,
-                    Value = usuario.Estado_usuario.ToUpper().Trim(),
-                };
-                SqlCmd.Parameters.Add(Estado_usuario);
+                SqlCmd.Parameters.Add(Estado_producto);
                 contador++;
 
                 SqlParameter Fecha = new()
                 {
                     ParameterName = "@Fecha",
                     SqlDbType = SqlDbType.Date,
-                    Value = usuario.Fecha_ingreso,
+                    Value = DateTime.Now.ToString("yyyy-MM-dd"),
                 };
                 SqlCmd.Parameters.Add(Fecha);
                 contador++;
@@ -293,7 +252,7 @@
                     SqlDbType = SqlDbType.Time,
                     Value = DateTime.Now.TimeOfDay,
                 };
-                SqlCmd.Parameters.Add(Estado_usuario);
+                SqlCmd.Parameters.Add(Hora);
                 contador++;
 
                 rpta = await SqlCmd.ExecuteNonQueryAsync() >= 1 ? "OK" : "NO";
@@ -319,12 +278,12 @@
                 if (SqlCon.State == ConnectionState.Open)
                     SqlCon.Close();
             }
-            return (rpta, id_usuario);
+            return rpta;
         }
         #endregion
 
-        #region METODO BUSCAR USUARIOS
-        public async Task<(string rpta, DataSet ds)> BuscarUsuarios(string tipo_busqueda, string texto_busqueda)
+        #region METODO BUSCAR PRODUCTOS
+        public async Task<(string rpta, DataSet ds)> BuscarProductos(string tipo_busqueda, string texto_busqueda)
         {
             string rpta = "OK";
             DataSet ds = new();
@@ -336,7 +295,7 @@
                 SqlCommand Sqlcmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Buscar_usuarios",
+                    CommandText = "sp_Buscar_productos",
                     CommandType = CommandType.StoredProcedure
                 };
 

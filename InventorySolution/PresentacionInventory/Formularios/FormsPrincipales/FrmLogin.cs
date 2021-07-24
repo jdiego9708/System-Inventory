@@ -1,6 +1,8 @@
 ﻿using EntidadesInventory;
+using EntidadesInventory.BindingModels;
 using EntidadesInventory.Models;
 using ServiceInventory;
+using ServiceInventory.Interfaces;
 using System;
 using System.Windows.Forms;
 
@@ -8,8 +10,12 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
 {
     public partial class FrmLogin : Form
     {
-        public FrmLogin()
+        private readonly IServiceInventory ServiceInventory;
+
+        public FrmLogin(IServiceInventory serviceInventory)
         {
+            this.ServiceInventory = serviceInventory;
+
             InitializeComponent();
             this.btnLogin.Click += BtnLogin_Click;
             this.txtPIN.GotFocus += TxtPIN_GotFocus;
@@ -67,19 +73,18 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
                 }
 
                 MainController main = MainController.GetInstancia();
-                var (rpta, objs) = await NEmpleados.Login(pin, DateTime.Now.ToString("yyyy-MM-dd"));
-
+                var (rpta, objs) = await this.ServiceInventory.Login(pin, DateTime.Now.ToString("yyyy-MM-dd"));
                 if (rpta.Equals("OK"))
                 {
                     if (!this.IsComprobacion)
                     {
-                        Empleados empleado = (Empleados)objs[0];
-                        Turno turno = (Turno)objs[1];                      
+                        EmpleadoBindingModel empleado = (EmpleadoBindingModel)objs[0];
+                        Turnos turno = (Turnos)objs[1];                      
                         main.EmpleadoLogin = empleado;
                         main.EmpleadoClaveMaestra = empleado;
                         main.Turno = turno;
 
-                        FrmPrincipal frmPrincipal = new FrmPrincipal
+                        FrmPrincipal frmPrincipal = new()
                         {
                             WindowState = FormWindowState.Maximized,
                         };
@@ -89,7 +94,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
                     }
                     else
                     {
-                        Empleados empleado = (Empleados)objs[0];
+                        EmpleadoBindingModel empleado = (EmpleadoBindingModel)objs[0];
                         main.EmpleadoClaveMaestra = empleado;
                         this.Close();
                     }

@@ -9,8 +9,9 @@
     using System.Data.SqlClient;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Linq;
 
-    public class DUsuarios : IAccesoDatosInventory
+    public class DUsuarios : IAccesoDatosUsuarios
     {
         #region CONSTRUCTOR VACIO
         public DUsuarios()
@@ -395,6 +396,7 @@
             List<object> objects = new();
             EmpleadoBindingModel empleado = new();
             Turnos turno = new();
+            List<Reglas_usuario> reglas = new();
 
             DataSet ds = new("Login");
             SqlConnection SqlCon = new();
@@ -477,24 +479,25 @@
                             else
                                 throw new Exception("No se encontró el turno");
 
+                            DataTable dtReglas = ds.Tables[3];
+                            if (dtReglas.Rows.Count < 1)
+                                throw new Exception("No se encontraron las reglas del usuario");
+
+                            reglas = (from DataRow dr in dtReglas.Rows
+                                           select new Reglas_usuario(dr)).ToList();
+                            empleado.Reglas = reglas;
+
                             objects.Add(empleado);
                             objects.Add(turno);
                         }
                         else
-                        {
-                            throw new Exception("Las tablas del procedimiento Login no vienen completas, son 3 y vienen: " +
-                                ds.Tables.Count);
-                        }
+                            throw new Exception($"Las tablas del procedimiento Login no vienen completas, son 3 y vienen: {ds.Tables.Count}");
                     }
                     else
-                    {
                         rpta = "No tiene acceso al sistema debido a su cargo";
-                    }
                 }
                 else
-                {
                     throw new Exception("No se pudo iniciar sesión");
-                }
             }
             catch (SqlException ex)
             {

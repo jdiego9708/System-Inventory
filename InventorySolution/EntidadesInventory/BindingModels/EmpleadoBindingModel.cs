@@ -1,9 +1,10 @@
-﻿using EntidadesInventory.Models;
-using System;
-using System.Data;
-
-namespace EntidadesInventory.BindingModels
+﻿namespace EntidadesInventory.BindingModels
 {
+    using EntidadesInventory.Models;
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+
     public class EmpleadoBindingModel : Usuarios
     {
         public EmpleadoBindingModel()
@@ -24,11 +25,16 @@ namespace EntidadesInventory.BindingModels
                 this.Id_tipo_usuario = Convert.ToInt32(row["Id_tipo_usuario"]);
                 this.Tipo_usuario = new Catalogo(row);
                 this.Estado_usuario = Convert.ToString(row["Estado_usuario"]);
+                this.Credenciales = new Credenciales_usuario(row);
             }
             catch (Exception)
             {
                 
             }
         }
+
+        public Credenciales_usuario Credenciales { get; set; }
+
+        public List<Reglas_usuario> Reglas { get; set; }
     }
 }

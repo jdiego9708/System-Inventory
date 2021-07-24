@@ -8,16 +8,19 @@ namespace ServiceInventory.Services
 {
     public class ServiceInventory : IServiceInventory
     {
-        public IAccesoDatosInventory IAccesoDatosInventory { get; set; }
+        public IAccesoDatosProductos IAccesoDatosInventory { get; set; }
+        public IAccesoDatosUsuarios IAccesoDatosUsuarios { get; set; }
 
-        public ServiceInventory(IAccesoDatosInventory iAccesoDatosInventory)
+        public ServiceInventory(IAccesoDatosProductos accesoDatosInventory,
+            IAccesoDatosUsuarios accesoDatosUsuarios)
         {
-            this.IAccesoDatosInventory = iAccesoDatosInventory;
+            this.IAccesoDatosInventory = accesoDatosInventory;
+            this.IAccesoDatosUsuarios = accesoDatosUsuarios;
         }
 
         public async Task<(string rpta, List<object> objects)> Login(int pin, string fecha)
         {
-            return await this.IAccesoDatosInventory.Login(pin, fecha);
+            return await this.IAccesoDatosUsuarios.Login(pin, fecha);
         }
     }
 }

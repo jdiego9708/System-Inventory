@@ -1,12 +1,14 @@
-using PresentacionInventory.Formularios.FormsProductos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 namespace PresentacionInventory
 {
+    using AccesoDatosInventory;
+    using AccesoDatosInventory.Interfaces;
+    using Microsoft.Extensions.DependencyInjection;
+    using PresentacionInventory.Formularios.FormsPrincipales;
+    using ServiceInventory.Interfaces;
+    using ServiceInventory.Services;
+    using System;
+    using System.Windows.Forms;
+
     static class Program
     {
         /// <summary>
@@ -18,7 +20,21 @@ namespace PresentacionInventory
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmProducto());
+
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+
+            using var serviceProvider = services.BuildServiceProvider();
+            var frmLogin = serviceProvider.GetRequiredService<FrmLogin>();
+            Application.Run(frmLogin);
+        }
+
+        private static void ConfigureServices(ServiceCollection services)
+        {
+            services.AddScoped<IAccesoDatosUsuarios, DUsuarios>()
+                .AddScoped<IAccesoDatosProductos, DProductos>()
+                .AddScoped<IServiceInventory, ServiceInventory>()
+                .AddScoped<FrmLogin>();
         }
     }
 }

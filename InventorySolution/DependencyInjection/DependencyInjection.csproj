@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatosInventory\AccesoDatosInventory.csproj" />
+    <ProjectReference Include="..\EntidadesInventory\EntidadesInventory.csproj" />
+    <ProjectReference Include="..\PresentacionInventory\PresentacionInventory.csproj" />
+    <ProjectReference Include="..\PresentacionRestaurant\PresentacionRestaurant.csproj" />
+    <ProjectReference Include="..\ServiceInventory\ServiceInventory.csproj" />
+  </ItemGroup>
+
+</Project>

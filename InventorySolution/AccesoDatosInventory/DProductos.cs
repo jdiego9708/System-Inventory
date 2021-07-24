@@ -1,12 +1,13 @@
 ﻿namespace AccesoDatosInventory
 {
+    using AccesoDatosInventory.Interfaces;
     using EntidadesInventory.Models;
     using System;
     using System.Data;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
 
-    public class DProductos
+    public class DProductos : IAccesoDatosProductos
     {
         #region CONSTRUCTOR VACIO
         public DProductos()

@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentacion", "Presentacio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentacionInventory", "PresentacionInventory\PresentacionInventory.csproj", "{56A33B74-BCB3-4893-BE74-CD253E56A0BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentacionRestaurant", "PresentacionRestaurant\PresentacionRestaurant.csproj", "{20DDFD17-0708-48B3-A0D0-72BD868F3533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentacionRestaurant", "PresentacionRestaurant\PresentacionRestaurant.csproj", "{20DDFD17-0708-48B3-A0D0-72BD868F3533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

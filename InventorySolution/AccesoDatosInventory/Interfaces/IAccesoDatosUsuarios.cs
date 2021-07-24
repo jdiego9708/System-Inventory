@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AccesoDatosInventory.Interfaces
 {
-    public interface IAccesoDatosInventory
+    public interface IAccesoDatosUsuarios
     {
         Task<(string rpta, int id_usuario)> InsertarUsuarios(Usuarios usuario);
         Task<(string rpta, int id_usuario)> EditarUsuarios(Usuarios usuario);

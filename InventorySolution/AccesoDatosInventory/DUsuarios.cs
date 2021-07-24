@@ -1,12 +1,16 @@
 ﻿namespace AccesoDatosInventory
 {
+    using AccesoDatosInventory.Interfaces;
+    using EntidadesInventory.BindingModels;
     using EntidadesInventory.Models;
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Text;
     using System.Threading.Tasks;
 
-    public class DUsuarios
+    public class DUsuarios : IAccesoDatosInventory
     {
         #region CONSTRUCTOR VACIO
         public DUsuarios()
@@ -379,6 +383,188 @@
             }
 
             return (rpta, ds);
+        }
+
+        #endregion
+
+        #region METODO LOGIN
+        public async Task<(string rpta, List<object> objects)> Login(int pin, string fecha)
+        {
+            string rpta = "OK";
+
+            List<object> objects = new();
+            EmpleadoBindingModel empleado = new();
+            Turnos turno = new();
+
+            DataSet ds = new("Login");
+            SqlConnection SqlCon = new();
+            SqlCon.InfoMessage += new SqlInfoMessageEventHandler(SqlCon_InfoMessage);
+            SqlCon.FireInfoMessageEventOnUserErrors = true;
+            try
+            {
+                StringBuilder consulta = new();
+                SqlCommand Sqlcmd;
+                SqlCon.ConnectionString = Conexion.Cn;
+                await SqlCon.OpenAsync();
+                Sqlcmd = new SqlCommand
+                {
+                    Connection = SqlCon,
+                    CommandText = "sp_Login",
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                SqlParameter PIN = new()
+                {
+                    ParameterName = "@PIN",
+                    SqlDbType = SqlDbType.Int,
+                    Value = pin,
+                };
+                Sqlcmd.Parameters.Add(PIN);
+
+                SqlParameter Fecha = new()
+                {
+                    ParameterName = "@Fecha",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 50,
+                    Value = fecha.Trim()
+                };
+                Sqlcmd.Parameters.Add(Fecha);
+
+                SqlDataAdapter SqlData = new(Sqlcmd);
+                await Task.Run(() => SqlData.Fill(ds));
+
+                bool result = false;
+                string tipo_usuario = "";
+                //1->Primer tabla es la respuesta
+                DataTable dtRespuesta = ds.Tables[0];
+                if (dtRespuesta.Rows.Count > 0)
+                {
+                    //Comprobar respuesta
+                    string respuestaSQL = Convert.ToString(dtRespuesta.Rows[0]["Respuesta"]);
+                    if (respuestaSQL.Equals("OK"))
+                    {
+                        tipo_usuario = Convert.ToString(dtRespuesta.Rows[0]["Tipo_usuario"]);
+                        result = true;
+                    }
+                    else
+                        throw new Exception(respuestaSQL);
+                }
+                else
+                    throw new Exception("No se encontró la respuesta del procedimiento");
+
+                if (result)
+                {
+                    if (tipo_usuario.Equals("CAJERO") ||
+                        tipo_usuario.Equals("ADMINISTRADOR") ||
+                        tipo_usuario.Equals("MESERO") ||
+                        tipo_usuario.Equals("COCINERO"))
+                    {
+                        if (ds.Tables.Count >= 3)
+                        {
+                            DataTable dtEmpleado = ds.Tables[1];
+
+                            //Obtener la credencial
+                            if (dtEmpleado.Rows.Count > 0)
+                                empleado = new EmpleadoBindingModel(dtEmpleado.Rows[0]);
+                            else
+                                throw new Exception("No se encontraron las credenciales");
+
+                            DataTable dtTurno = ds.Tables[2];
+
+                            //Obtener el último turno
+                            if (dtTurno.Rows.Count > 0)
+                                turno = new Turnos(dtTurno.Rows[0]);
+                            else
+                                throw new Exception("No se encontró el turno");
+
+                            objects.Add(empleado);
+                            objects.Add(turno);
+                        }
+                        else
+                        {
+                            throw new Exception("Las tablas del procedimiento Login no vienen completas, son 3 y vienen: " +
+                                ds.Tables.Count);
+                        }
+                    }
+                    else
+                    {
+                        rpta = "No tiene acceso al sistema debido a su cargo";
+                    }
+                }
+                else
+                {
+                    throw new Exception("No se pudo iniciar sesión");
+                }
+            }
+            catch (SqlException ex)
+            {
+                rpta = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                    SqlCon.Close();
+            }
+
+            return (rpta, objects);
+        }
+
+        public async Task<(string rpta, EmpleadoBindingModel empleado, DataTable dtEmpleado)> ClaveMaestra(int codigo)
+        {
+            string rpta = "OK";
+
+            EmpleadoBindingModel empleado = new();
+
+            DataTable dt = new("ClaveMaestra");
+            SqlConnection SqlCon = new();
+            SqlCon.InfoMessage += new SqlInfoMessageEventHandler(SqlCon_InfoMessage);
+            SqlCon.FireInfoMessageEventOnUserErrors = true;
+            try
+            {
+                StringBuilder consulta = new();
+                consulta.Append("SELECT TOP 1 * " +
+                    "FROM Empleados " +
+                    "WHERE Codigo_maestro = " + codigo);
+
+                SqlCommand Sqlcmd;
+                SqlCon.ConnectionString = Conexion.Cn;
+                await SqlCon.OpenAsync();
+                Sqlcmd = new SqlCommand
+                {
+                    Connection = SqlCon,
+                    CommandText = consulta.ToString(),
+                    CommandType = CommandType.Text,
+                };
+
+                SqlDataAdapter SqlData = new(Sqlcmd);
+                SqlData.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    empleado = new EmpleadoBindingModel(dt.Rows[0]);
+                }
+                else
+                    dt = null;
+            }
+            catch (SqlException ex)
+            {
+                rpta = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open)
+                    SqlCon.Close();
+            }
+
+            return (rpta, empleado, dt);
         }
 
         #endregion

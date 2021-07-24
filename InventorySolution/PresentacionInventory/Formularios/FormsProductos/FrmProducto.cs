@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentacionInventory
+namespace PresentacionInventory.Formularios.FormsProductos
 {
-    public partial class Form1 : Form
+    public partial class FrmProducto : Form
     {
-        public Form1()
+        public FrmProducto()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -7,17 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entidades", "Entidades", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccesoDatos", "AccesoDatos", "{EC22D8ED-8AB5-45C2-92CC-963E28CEF15B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntidadesInventory", "EntidadesInventory\EntidadesInventory.csproj", "{A3C4A847-8EA9-4778-BF08-D54BAEADDE9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntidadesInventory", "EntidadesInventory\EntidadesInventory.csproj", "{A3C4A847-8EA9-4778-BF08-D54BAEADDE9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatosInventory", "AccesoDatosInventory\AccesoDatosInventory.csproj", "{077A1574-097D-41CD-B33B-56AFE7155A5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccesoDatosInventory", "AccesoDatosInventory\AccesoDatosInventory.csproj", "{077A1574-097D-41CD-B33B-56AFE7155A5F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servicios", "Servicios", "{DEA2D851-CF48-4FE8-8F2C-E65C57C5C458}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInventory", "ServiceInventory\ServiceInventory.csproj", "{551FB2FE-C91E-4E2B-A7E7-185873FF40C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceInventory", "ServiceInventory\ServiceInventory.csproj", "{551FB2FE-C91E-4E2B-A7E7-185873FF40C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentacion", "Presentacion", "{A2880153-FD7F-48EB-A787-B57FB6586D32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentacionInventory", "PresentacionInventory\PresentacionInventory.csproj", "{56A33B74-BCB3-4893-BE74-CD253E56A0BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentacionInventory", "PresentacionInventory\PresentacionInventory.csproj", "{56A33B74-BCB3-4893-BE74-CD253E56A0BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentacionRestaurant", "PresentacionRestaurant\PresentacionRestaurant.csproj", "{20DDFD17-0708-48B3-A0D0-72BD868F3533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{56A33B74-BCB3-4893-BE74-CD253E56A0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56A33B74-BCB3-4893-BE74-CD253E56A0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56A33B74-BCB3-4893-BE74-CD253E56A0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20DDFD17-0708-48B3-A0D0-72BD868F3533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20DDFD17-0708-48B3-A0D0-72BD868F3533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20DDFD17-0708-48B3-A0D0-72BD868F3533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20DDFD17-0708-48B3-A0D0-72BD868F3533}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{077A1574-097D-41CD-B33B-56AFE7155A5F} = {EC22D8ED-8AB5-45C2-92CC-963E28CEF15B}
 		{551FB2FE-C91E-4E2B-A7E7-185873FF40C2} = {DEA2D851-CF48-4FE8-8F2C-E65C57C5C458}
 		{56A33B74-BCB3-4893-BE74-CD253E56A0BB} = {A2880153-FD7F-48EB-A787-B57FB6586D32}
+		{20DDFD17-0708-48B3-A0D0-72BD868F3533} = {A2880153-FD7F-48EB-A787-B57FB6586D32}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58397F08-C428-4551-AC86-5DF0C2BC4C9A}

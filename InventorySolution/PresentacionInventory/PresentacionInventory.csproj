@@ -6,4 +6,61 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="CustomControls\" />
+    <Folder Include="Formularios\FormsUsuarios\" />
+    <Folder Include="Formularios\FormsPrincipales\" />
+    <Folder Include="Mensajes\FormsMensajes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EntidadesInventory\EntidadesInventory.csproj" />
+    <ProjectReference Include="..\ServiceInventory\ServiceInventory.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Servicios\dsInventory.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsInventory.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Servicios\EmailSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EmailSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Servicios\PrintSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PrintSettings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Servicios\dsInventory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsInventory.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Servicios\EmailSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>EmailSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Servicios\PrintSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>PrintSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>

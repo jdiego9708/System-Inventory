@@ -8,5 +8,6 @@ namespace ServiceInventory.Interfaces
 {
     public interface IServiceInventory
     {
+        Task<(string rpta, List<object> objects)> Login(int pin, string fecha);
     }
 }

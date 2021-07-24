@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CapaPresentacion.Servicios" GeneratedClassName="EmailSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="emailTo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jdiego9708@gmail.com</Value>
+    </Setting>
+    <Setting Name="eMailFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">solucionesinformaticas9708@gmail.com</Value>
+    </Setting>
+    <Setting Name="eMailSMTP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">smtp.gmail.com</Value>
+    </Setting>
+    <Setting Name="eMailPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">soluciones2020*</Value>
+    </Setting>
+    <Setting Name="portEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

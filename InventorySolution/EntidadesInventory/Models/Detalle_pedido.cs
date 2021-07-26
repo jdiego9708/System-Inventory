@@ -4,7 +4,7 @@
     using System;
     using System.Data;
 
-    public class Detalle_pedido
+    public class Detalle_pedido : MainViewModel
     {
         public Detalle_pedido()
         {
@@ -26,7 +26,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -46,6 +46,6 @@
 
         public string Observaciones { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

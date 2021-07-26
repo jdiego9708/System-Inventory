@@ -4,7 +4,7 @@
     using System;
     using System.Data;
 
-    public class Credenciales_usuario
+    public class Credenciales_usuario : MainViewModel
     {
         public Credenciales_usuario()
         {
@@ -25,7 +25,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                GetErrorModel(ex.Message, this);
             }
         }
 
@@ -42,7 +42,5 @@
         public string Password { get; set; }
 
         public string Estado_credencial { get; set; }
-
-        public event EventHandler OnError;
     }
 }

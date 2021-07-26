@@ -3,7 +3,7 @@
     using System;
     using System.Data;
 
-    public class Direcciones_cliente
+    public class Direcciones_cliente : MainViewModel
     {
         public Direcciones_cliente()
         {
@@ -23,7 +23,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -39,6 +39,6 @@
 
         public string Estado_direccion { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

@@ -4,7 +4,7 @@
     using System;
     using System.Data;
 
-    public class Facturacion
+    public class Facturacion : MainViewModel
     {
         public Facturacion()
         {
@@ -23,7 +23,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -37,6 +37,6 @@
 
         public string Observaciones { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

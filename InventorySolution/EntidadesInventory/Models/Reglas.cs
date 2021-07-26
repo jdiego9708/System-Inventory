@@ -3,7 +3,7 @@
     using System;
     using System.Data;
 
-    public class Reglas
+    public class Reglas : MainViewModel
     {
         public Reglas()
         {
@@ -20,7 +20,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -30,6 +30,6 @@
 
         public string Estado_regla { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

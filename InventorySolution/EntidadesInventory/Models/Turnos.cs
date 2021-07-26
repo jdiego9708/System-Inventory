@@ -4,7 +4,7 @@
     using System;
     using System.Data;
 
-    public class Turnos
+    public class Turnos : MainViewModel
     {
         public Turnos()
         {
@@ -30,7 +30,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -58,6 +58,6 @@
 
         public string Estado_turno { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

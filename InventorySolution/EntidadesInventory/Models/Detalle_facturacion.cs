@@ -4,7 +4,7 @@
     using System;
     using System.Data;
 
-    public class Detalle_facturacion
+    public class Detalle_facturacion : MainViewModel
     {
         public Detalle_facturacion()
         {
@@ -23,7 +23,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -35,8 +35,6 @@
 
         public decimal Valor_detalle { get; set; }
 
-        public string Observaciones_detalle { get; set; }
-
-        public event EventHandler OnError;
+        public string Observaciones_detalle { get; set; }     
     }
 }

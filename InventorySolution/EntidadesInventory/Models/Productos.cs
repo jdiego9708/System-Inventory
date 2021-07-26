@@ -3,7 +3,7 @@
     using System;
     using System.Data;
 
-    public class Productos
+    public class Productos : MainViewModel
     {
         public Productos()
         {
@@ -23,7 +23,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -39,6 +39,6 @@
 
         public string Estado_producto { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

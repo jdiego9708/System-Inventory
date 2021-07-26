@@ -3,7 +3,7 @@
     using System;
     using System.Data;
 
-    public class Catalogo
+    public class Catalogo : MainViewModel
     {
         public Catalogo()
         {
@@ -20,7 +20,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                GetErrorModel(ex.Message, this);
             }
         }
 
@@ -29,7 +29,5 @@
         public int Id_padre { get; set; }
 
         public string Nombre_tipo { get; set; }
-
-        public event EventHandler OnError;
     }
 }

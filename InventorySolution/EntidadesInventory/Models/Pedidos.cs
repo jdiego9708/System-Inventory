@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.Data;
 
-    public class Pedidos
+    public class Pedidos : MainViewModel
     {
         public Pedidos()
         {
@@ -32,7 +32,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -64,6 +64,6 @@
 
         public List<Detalle_pedido> Detalle_pedido { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

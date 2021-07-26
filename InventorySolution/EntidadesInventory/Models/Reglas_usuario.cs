@@ -3,7 +3,7 @@
     using System;
     using System.Data;
 
-    public class Reglas_usuario
+    public class Reglas_usuario : MainViewModel
     {
         public Reglas_usuario()
         {
@@ -23,7 +23,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -39,6 +39,6 @@
 
         public string Estado_regla { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

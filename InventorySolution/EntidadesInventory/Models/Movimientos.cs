@@ -4,7 +4,7 @@
     using System;
     using System.Data;
 
-    public class Movimientos
+    public class Movimientos : MainViewModel
     {
         public Movimientos()
         {
@@ -25,7 +25,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -43,6 +43,6 @@
 
         public string Estado_movimiento { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

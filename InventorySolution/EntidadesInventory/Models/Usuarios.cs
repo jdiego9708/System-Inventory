@@ -3,7 +3,7 @@
     using System;
     using System.Data;
 
-    public class Usuarios
+    public class Usuarios : MainViewModel
     {
         public Usuarios()
         {
@@ -26,7 +26,7 @@
             }
             catch (Exception ex)
             {
-                OnError?.Invoke(ex.Message, null);
+                 GetErrorModel(ex.Message, this);
             }
         }
 
@@ -48,6 +48,6 @@
 
         public string Estado_usuario { get; set; }
 
-        public event EventHandler OnError;
+        
     }
 }

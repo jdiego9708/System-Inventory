@@ -2,6 +2,7 @@ namespace PresentacionInventory
 {
     using AccesoDatosInventory;
     using AccesoDatosInventory.Interfaces;
+    using EntidadesInventory;
     using Microsoft.Extensions.DependencyInjection;
     using PresentacionInventory.Formularios.FormsPrincipales;
     using ServiceInventory.Interfaces;
@@ -21,19 +22,27 @@ namespace PresentacionInventory
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var services = new ServiceCollection();
-            ConfigureServices(services);
-
-            using var serviceProvider = services.BuildServiceProvider();
+            MainController main = MainController.GetInstancia();
+            LoadDependencyInjection(main);        
+            using var serviceProvider = main.ServiceColletionMain.BuildServiceProvider();
             var frmLogin = serviceProvider.GetRequiredService<FrmLogin>();
             Application.Run(frmLogin);
+        }
+
+        public static void LoadDependencyInjection(MainController main)
+        {
+            main.ServiceColletionMain = new ServiceCollection();
+            ConfigureServices(main.ServiceColletionMain);
         }
 
         private static void ConfigureServices(ServiceCollection services)
         {
             services.AddScoped<IAccesoDatosUsuarios, DUsuarios>()
                 .AddScoped<IAccesoDatosProductos, DProductos>()
-                .AddScoped<IServiceInventory, ServiceInventory>()
+                .AddScoped<IAccesoDatosMovimientos, DMovimientos>()
+                .AddScoped<IAccesoDatosPedidos, DPedidos>()
+                .AddScoped<IAccesoDatosProductos, DProductos>()
+                .AddScoped<IServiceInventory, ServiceInventoryMain>()
                 .AddScoped<FrmLogin>();
         }
     }

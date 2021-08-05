@@ -37,6 +37,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>EmailSettings.settings</DependentUpon>
     </Compile>
+    <Compile Update="Servicios\MainSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MainSettings.settings</DependentUpon>
+    </Compile>
     <Compile Update="Servicios\PrintSettings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -59,6 +64,10 @@
     <None Update="Servicios\EmailSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>EmailSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Servicios\MainSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>MainSettings.Designer.cs</LastGenOutput>
     </None>
     <None Update="Servicios\PrintSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -51,6 +51,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(417, 54);
             this.panel1.TabIndex = 0;
+            this.panel1.Tag = "customColor";
             // 
             // txtTitulo
             // 
@@ -66,6 +67,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.txtTitulo.ReadOnly = true;
             this.txtTitulo.Size = new System.Drawing.Size(391, 27);
             this.txtTitulo.TabIndex = 10;
+            this.txtTitulo.Tag = "customColor";
             this.txtTitulo.Text = "SISRestaurant";
             this.txtTitulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -78,6 +80,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(417, 23);
             this.panel2.TabIndex = 1;
+            this.panel2.Tag = "customColor";
             // 
             // groupBox1
             // 
@@ -162,8 +165,11 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de sesión";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

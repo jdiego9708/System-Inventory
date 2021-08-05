@@ -12,7 +12,7 @@ namespace AccesoDatosInventory
     {
         public static string ObtenerCadenaDeConexion()
         {
-            return @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=InventarioBD;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            return @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=InventoryBD;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         }
 
         public static string Cn = ObtenerCadenaDeConexion();

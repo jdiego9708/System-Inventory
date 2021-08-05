@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PresentacionInventory;
+using PresentacionRestaurant.ServicesRestaurant;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,27 @@ namespace PresentacionRestaurant.Formularios.FormsMesas
         public FrmMesas()
         {
             InitializeComponent();
+            this.Load += FrmMesas_Load;
+        }
+
+        private void FrmMesas_Load(object sender, EventArgs e)
+        {
+            bool isDomicilio = ConfigRestaurant.Default.IsModuloDomicilio;
+            this.btnDomicilios.Visible = isDomicilio;
+        }
+
+        public void LoadMesas()
+        {
+            try
+            {
+                int cantidad_mesas = ConfigRestaurant.Default.CantidadMesas;
+
+            }
+            catch (Exception ex)
+            {
+                MensajesService.MensajeErrorCompleto(this.Name, "LoadMesas()",
+                    "Hubo un error cargando las mesas", ex.Message);
+            }
         }
     }
 }

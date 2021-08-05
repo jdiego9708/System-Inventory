@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EntidadesInventory;
+using EntidadesInventory.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,12 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
         public FrmPrincipal()
         {
             InitializeComponent();
+            this.Load += FrmPrincipal_Load;
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            MainController main = MainController.GetInstancia();
         }
     }
 }

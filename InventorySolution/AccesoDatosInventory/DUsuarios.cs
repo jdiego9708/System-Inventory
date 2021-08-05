@@ -415,25 +415,32 @@
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter PIN = new()
+                SqlParameter Pass = new()
                 {
-                    ParameterName = "@PIN",
+                    ParameterName = "@Pass",
                     SqlDbType = SqlDbType.Int,
                     Value = pin,
                 };
-                Sqlcmd.Parameters.Add(PIN);
+                Sqlcmd.Parameters.Add(Pass);
 
                 SqlParameter Fecha = new()
                 {
                     ParameterName = "@Fecha",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 50,
+                    SqlDbType = SqlDbType.Date,
                     Value = fecha.Trim()
                 };
                 Sqlcmd.Parameters.Add(Fecha);
 
+                SqlParameter Hora = new()
+                {
+                    ParameterName = "@Hora",
+                    SqlDbType = SqlDbType.Time,
+                    Value = DateTime.Now.ToString("HH:mm"),
+                };
+                Sqlcmd.Parameters.Add(Hora);
+
                 SqlDataAdapter SqlData = new(Sqlcmd);
-                await Task.Run(() => SqlData.Fill(ds));
+                SqlData.Fill(ds);
 
                 bool result = false;
                 string tipo_usuario = "";

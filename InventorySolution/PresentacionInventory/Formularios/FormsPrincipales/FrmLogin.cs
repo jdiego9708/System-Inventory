@@ -1,9 +1,11 @@
 ﻿using EntidadesInventory;
 using EntidadesInventory.BindingModels;
 using EntidadesInventory.Models;
+using PresentacionInventory.Servicios;
 using ServiceInventory;
 using ServiceInventory.Interfaces;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PresentacionInventory.Formularios.FormsPrincipales
@@ -23,6 +25,8 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.txtPIN.KeyPress += TxtPIN_KeyPress;
             this.btnCancelar.Click += BtnCancelar_Click;
             this.FormClosed += FrmLogin_FormClosed;
+
+            ColorHelper.ChangeColorDefault(this);
         }
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
@@ -83,7 +87,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
                         main.EmpleadoLogin = empleado;
                         main.EmpleadoClaveMaestra = empleado;
                         main.Turno = turno;
-
+                       
                         FrmPrincipal frmPrincipal = new()
                         {
                             WindowState = FormWindowState.Maximized,

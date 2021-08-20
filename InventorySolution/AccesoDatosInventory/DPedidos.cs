@@ -56,7 +56,7 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Insertar_pedido",
+                    CommandText = "sp_Pedidos_i",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -196,7 +196,7 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Editar_pedido",
+                    CommandText = "sp_Pedidos_u",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -332,7 +332,7 @@
                 SqlCommand Sqlcmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Buscar_pedidos",
+                    CommandText = "sp_Pedidos_g",
                     CommandType = CommandType.StoredProcedure
                 };
 

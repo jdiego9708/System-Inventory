@@ -1,6 +1,5 @@
-﻿using EntidadesInventory.Models;
-using PresentacionInventory.Servicios;
-using PresentacionInventory.Servicios.Interfaces;
+﻿using ControlesCompartidos.Interfaces;
+using EntidadesInventory.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

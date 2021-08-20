@@ -12,7 +12,7 @@ namespace PresentacionRestaurant.ServicesRestaurant {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.2.0")]
     internal sealed partial class ConfigRestaurant : global::System.Configuration.ApplicationSettingsBase {
         
         private static ConfigRestaurant defaultInstance = ((ConfigRestaurant)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new ConfigRestaurant())));
@@ -25,7 +25,7 @@ namespace PresentacionRestaurant.ServicesRestaurant {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
         public int CantidadMesas {
             get {
                 return ((int)(this["CantidadMesas"]));

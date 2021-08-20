@@ -7,16 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CustomControls\" />
-    <Folder Include="Mensajes\FormsMensajes\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ControlesCompartidos\ControlesCompartidos.csproj" />
     <ProjectReference Include="..\EntidadesInventory\EntidadesInventory.csproj" />
+    <ProjectReference Include="..\PresentacionRestaurant\PresentacionRestaurant.csproj" />
     <ProjectReference Include="..\ServiceInventory\ServiceInventory.csproj" />
   </ItemGroup>
 
@@ -26,26 +23,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Servicios\dsInventory.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>dsInventory.xsd</DependentUpon>
-    </Compile>
-    <Compile Update="Servicios\EmailSettings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EmailSettings.settings</DependentUpon>
-    </Compile>
-    <Compile Update="Servicios\MainSettings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MainSettings.settings</DependentUpon>
-    </Compile>
-    <Compile Update="Servicios\PrintSettings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PrintSettings.settings</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -53,25 +30,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Servicios\dsInventory.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsInventory.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="Servicios\EmailSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>EmailSettings.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="Servicios\MainSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>MainSettings.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="Servicios\PrintSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>PrintSettings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
 </Project>

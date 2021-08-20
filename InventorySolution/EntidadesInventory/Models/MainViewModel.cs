@@ -15,5 +15,15 @@ namespace EntidadesInventory.Models
 
             main.Errors.Add(errorModel);
         }
+
+        public static void GetError(ErrorModel errorModel)
+        {
+            MainController main = MainController.GetInstancia();
+
+            if (main.Errors == null)
+                main.Errors = new List<ErrorModel>();
+
+            main.Errors.Add(errorModel);
+        }
     }
 }

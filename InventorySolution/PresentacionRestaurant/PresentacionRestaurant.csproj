@@ -4,11 +4,13 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>G:\JUAN DIEGO\Google Drive\Repositorio de imágenes\ICONO\mycomputer.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ControlesCompartidos\ControlesCompartidos.csproj" />
     <ProjectReference Include="..\EntidadesInventory\EntidadesInventory.csproj" />
-    <ProjectReference Include="..\PresentacionInventory\PresentacionInventory.csproj" />
+    <ProjectReference Include="..\ServiceInventory\ServiceInventory.csproj" />
   </ItemGroup>
 
   <ItemGroup>

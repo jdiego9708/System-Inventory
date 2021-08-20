@@ -56,7 +56,7 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Insertar_movimiento",
+                    CommandText = "sp_Movimientos_i",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -159,7 +159,7 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Insertar_movimiento",
+                    CommandText = "sp_Movimientos_u",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -258,7 +258,7 @@
                 SqlCommand Sqlcmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Buscar_movimientos",
+                    CommandText = "sp_Movimientos_g",
                     CommandType = CommandType.StoredProcedure
                 };
 

@@ -60,7 +60,7 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Insertar_usuario",
+                    CommandText = "sp_Usuarios_i",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -155,7 +155,7 @@
                     SqlDbType = SqlDbType.Time,
                     Value = DateTime.Now.TimeOfDay,
                 };
-                SqlCmd.Parameters.Add(Estado_usuario);
+                SqlCmd.Parameters.Add(Hora);
                 contador++;
 
                 rpta = await SqlCmd.ExecuteNonQueryAsync() >= 1 ? "OK" : "NO";
@@ -203,7 +203,7 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Editar_usuario",
+                    CommandText = "sp_Usuarios_u",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -341,7 +341,7 @@
                 SqlCommand Sqlcmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Buscar_usuarios",
+                    CommandText = "sp_Usuarios_g",
                     CommandType = CommandType.StoredProcedure
                 };
 

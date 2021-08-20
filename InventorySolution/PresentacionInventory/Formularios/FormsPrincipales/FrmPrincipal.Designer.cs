@@ -31,13 +31,14 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.panelBotones = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMesas = new System.Windows.Forms.Button();
+            this.btnProductos = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelBotones.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,55 +48,55 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.panelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBotones.BackColor = System.Drawing.Color.DarkCyan;
-            this.panelBotones.Controls.Add(this.button4);
-            this.panelBotones.Controls.Add(this.button1);
+            this.panelBotones.Controls.Add(this.btnMesas);
+            this.panelBotones.Controls.Add(this.btnProductos);
             this.panelBotones.Controls.Add(this.label2);
             this.panelBotones.Controls.Add(this.label1);
-            this.panelBotones.Controls.Add(this.button3);
+            this.panelBotones.Controls.Add(this.btnEmpleados);
             this.panelBotones.Location = new System.Drawing.Point(0, 0);
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Size = new System.Drawing.Size(168, 510);
             this.panelBotones.TabIndex = 0;
             // 
-            // button4
+            // btnMesas
             // 
-            this.button4.BackColor = System.Drawing.Color.DarkCyan;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.Location = new System.Drawing.Point(1, 139);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(165, 44);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Mesas";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnMesas.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnMesas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMesas.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnMesas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnMesas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnMesas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMesas.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMesas.ForeColor = System.Drawing.Color.White;
+            this.btnMesas.Image = ((System.Drawing.Image)(resources.GetObject("btnMesas.Image")));
+            this.btnMesas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMesas.Location = new System.Drawing.Point(1, 139);
+            this.btnMesas.Name = "btnMesas";
+            this.btnMesas.Size = new System.Drawing.Size(165, 44);
+            this.btnMesas.TabIndex = 7;
+            this.btnMesas.Text = "Mesas";
+            this.btnMesas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMesas.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnProductos
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkCyan;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(1, 94);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 44);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Productos";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnProductos.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnProductos.ForeColor = System.Drawing.Color.White;
+            this.btnProductos.Image = ((System.Drawing.Image)(resources.GetObject("btnProductos.Image")));
+            this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProductos.Location = new System.Drawing.Point(1, 94);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(165, 44);
+            this.btnProductos.TabIndex = 6;
+            this.btnProductos.Text = "Productos";
+            this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductos.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -121,25 +122,25 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.label1.TabIndex = 4;
             this.label1.Text = "Software";
             // 
-            // button3
+            // btnEmpleados
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkCyan;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(1, 49);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(165, 44);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Empleados";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnEmpleados.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmpleados.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnEmpleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleados.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnEmpleados.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleados.Image")));
+            this.btnEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEmpleados.Location = new System.Drawing.Point(1, 49);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(165, 44);
+            this.btnEmpleados.TabIndex = 3;
+            this.btnEmpleados.Text = "Empleados";
+            this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleados.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -173,12 +174,23 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelPrincipal.Location = new System.Drawing.Point(167, 49);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(632, 461);
+            this.panelPrincipal.TabIndex = 2;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 510);
+            this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelBotones);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -197,11 +209,12 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
 
         private System.Windows.Forms.Panel panelBotones;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnMesas;
+        private System.Windows.Forms.Panel panelPrincipal;
     }
 }

@@ -11,6 +11,8 @@ namespace AccesoDatosInventory.Interfaces
 {
     public interface IAccesoDatosPedidos
     {
-
+        Task<(string rpta, int id)> InsertarPedido(Pedidos pedido);
+        Task<string> EditarPedido(Pedidos pedido);
+        Task<(string rpta, DataSet ds)> BuscarPedidos(string tipo_busqueda, string texto_busqueda);
     }
 }

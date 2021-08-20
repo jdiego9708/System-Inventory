@@ -56,7 +56,7 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Insertar_producto",
+                    CommandText = "sp_Productos_i",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -77,14 +77,14 @@
                 SqlCmd.Parameters.Add(Id_tipo_producto);
                 contador++;
 
-                SqlParameter Nombre_usuario = new()
+                SqlParameter Nombre_producto = new()
                 {
                     ParameterName = "@Nombre_producto",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 50,
                     Value = producto.Nombre_producto.Trim(),
                 };
-                SqlCmd.Parameters.Add(Nombre_usuario);
+                SqlCmd.Parameters.Add(Nombre_producto);
                 contador++;
 
                 SqlParameter Precio_producto = new()
@@ -178,7 +178,7 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Insertar_producto",
+                    CommandText = "sp_Productos_u",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -296,7 +296,7 @@
                 SqlCommand Sqlcmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Buscar_productos",
+                    CommandText = "sp_Productos_g",
                     CommandType = CommandType.StoredProcedure
                 };
 

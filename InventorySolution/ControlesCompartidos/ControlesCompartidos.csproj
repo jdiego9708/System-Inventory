@@ -1,0 +1,107 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Formularios\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EntidadesInventory\EntidadesInventory.csproj" />
+    <ProjectReference Include="..\ServiceInventory\ServiceInventory.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CustomControls\ConfiguracionImagen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomControls\CustomGridPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomControls\CustomTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomControls\PoperContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomControls\UploadImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Mensajes\FormsMensajes\FrmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Mensajes\FormsMensajes\FrmMensajeErrorCompleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Mensajes\FormsMensajes\FrmMensajeInformacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Mensajes\FormsMensajes\FrmMensajeOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Mensajes\FormsMensajes\FrmMensajePregunta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Mensajes\FormsWait\FrmWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Resources\RecursosImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RecursosImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Servicios\dsInventory.Designer.cs">
+      <DependentUpon>dsInventory.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Servicios\EmailSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>EmailSettings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Servicios\MainSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>MainSettings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Servicios\PrintSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>PrintSettings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\RecursosImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Servicios\dsInventory.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>dsInventory.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Update="Servicios\EmailSettings.settings">
+      <LastGenOutput>EmailSettings.Designer.cs</LastGenOutput>
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
+    <None Update="Servicios\MainSettings.settings">
+      <LastGenOutput>MainSettings.Designer.cs</LastGenOutput>
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
+    <None Update="Servicios\PrintSettings.settings">
+      <LastGenOutput>PrintSettings.Designer.cs</LastGenOutput>
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+
+</Project>

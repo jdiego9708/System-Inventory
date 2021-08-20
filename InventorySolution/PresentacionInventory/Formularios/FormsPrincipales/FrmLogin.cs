@@ -1,7 +1,9 @@
-﻿using EntidadesInventory;
+﻿using ControlesCompartidos;
+using EntidadesInventory;
 using EntidadesInventory.BindingModels;
+using EntidadesInventory.Helpers;
 using EntidadesInventory.Models;
-using PresentacionInventory.Servicios;
+using Microsoft.Extensions.DependencyInjection;
 using ServiceInventory;
 using ServiceInventory.Interfaces;
 using System;
@@ -87,7 +89,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
                         main.EmpleadoLogin = empleado;
                         main.EmpleadoClaveMaestra = empleado;
                         main.Turno = turno;
-                       
+
                         FrmPrincipal frmPrincipal = new()
                         {
                             WindowState = FormWindowState.Maximized,
@@ -113,8 +115,10 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             }
             catch (Exception ex)
             {
-                MensajesService.MensajeErrorCompleto(this.Name, "BtnLogin_Click",
-                    "Hubo un error al iniciar sesión", ex.Message); ;
+                ErrorModel error = new(ex);
+                error.CustomMessage = $"Form: {this.Name} | Método: BtnLogin_Click() | ";
+                MainViewModel.GetError(error);
+                MensajesService.MensajeErrorCompleto(error);
             }
         }
 

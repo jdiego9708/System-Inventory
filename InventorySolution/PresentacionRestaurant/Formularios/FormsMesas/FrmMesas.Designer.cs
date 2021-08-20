@@ -40,7 +40,9 @@ namespace PresentacionRestaurant.Formularios.FormsMesas
             this.button1 = new System.Windows.Forms.Button();
             this.btnAddProductos = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panelMesas = new ControlesCompartidos.CustomGridPanel();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -189,12 +191,28 @@ namespace PresentacionRestaurant.Formularios.FormsMesas
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.panelMesas);
             this.groupBox2.Location = new System.Drawing.Point(12, 90);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(606, 383);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mesas";
+            // 
+            // panelMesas
+            // 
+            this.panelMesas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMesas.AutoScroll = true;
+            this.panelMesas.Location = new System.Drawing.Point(9, 24);
+            this.panelMesas.Name = "panelMesas";
+            this.panelMesas.PageSize = 10;
+            this.panelMesas.Size = new System.Drawing.Size(591, 353);
+            this.panelMesas.TabIndex = 0;
             // 
             // FrmMesas
             // 
@@ -211,6 +229,7 @@ namespace PresentacionRestaurant.Formularios.FormsMesas
             this.Text = "Mesas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -227,5 +246,6 @@ namespace PresentacionRestaurant.Formularios.FormsMesas
         private System.Windows.Forms.Button btnAddProductos;
         private System.Windows.Forms.Button btnDomicilios;
         private System.Windows.Forms.GroupBox groupBox2;
+        private ControlesCompartidos.CustomGridPanel panelMesas;
     }
 }

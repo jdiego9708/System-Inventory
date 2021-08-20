@@ -27,6 +27,7 @@
                 this.Empleado = new Usuarios(row);
                 this.Observaciones_pedido = Convert.ToString(row["Observaciones_pedido"]);
                 this.CantidadClientes = Convert.ToInt32(row["CantidadClientes"]);
+                this.NumeroMesa = Convert.ToInt32(row["NumeroMesa"]);
                 this.Informacion_adicional = Convert.ToString(row["Informacion_adicional"]);
                 this.Estado_pedido = Convert.ToString(row["Estado_pedido"]);
             }
@@ -57,6 +58,8 @@
         public string Observaciones_pedido { get; set; }
 
         public int CantidadClientes { get; set; }
+
+        public int NumeroMesa { get; set; }
 
         public string Informacion_adicional { get; set; }
 

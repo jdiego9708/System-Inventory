@@ -57,12 +57,14 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Size = new System.Drawing.Size(168, 510);
             this.panelBotones.TabIndex = 0;
+            this.panelBotones.Tag = "customColor";
             // 
             // btnMesas
             // 
             this.btnMesas.BackColor = System.Drawing.Color.DarkCyan;
             this.btnMesas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesas.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnMesas.FlatAppearance.BorderSize = 0;
             this.btnMesas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
             this.btnMesas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
             this.btnMesas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -74,6 +76,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.btnMesas.Name = "btnMesas";
             this.btnMesas.Size = new System.Drawing.Size(165, 44);
             this.btnMesas.TabIndex = 7;
+            this.btnMesas.Tag = "customColor";
             this.btnMesas.Text = "Mesas";
             this.btnMesas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMesas.UseVisualStyleBackColor = false;
@@ -83,6 +86,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.btnProductos.BackColor = System.Drawing.Color.DarkCyan;
             this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnProductos.FlatAppearance.BorderSize = 0;
             this.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
             this.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -94,6 +98,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(165, 44);
             this.btnProductos.TabIndex = 6;
+            this.btnProductos.Tag = "customColor";
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductos.UseVisualStyleBackColor = false;
@@ -127,6 +132,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.btnEmpleados.BackColor = System.Drawing.Color.DarkCyan;
             this.btnEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEmpleados.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnEmpleados.FlatAppearance.BorderSize = 0;
             this.btnEmpleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
             this.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
             this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -138,6 +144,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(165, 44);
             this.btnEmpleados.TabIndex = 3;
+            this.btnEmpleados.Tag = "customColor";
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleados.UseVisualStyleBackColor = false;
@@ -152,6 +159,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(632, 49);
             this.panel2.TabIndex = 1;
+            this.panel2.Tag = "customColor";
             // 
             // button2
             // 
@@ -159,6 +167,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.button2.BackColor = System.Drawing.Color.DarkCyan;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -170,6 +179,7 @@ namespace PresentacionInventory.Formularios.FormsPrincipales
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(281, 44);
             this.button2.TabIndex = 3;
+            this.button2.Tag = "customColor";
             this.button2.Text = "Usuario";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControlesCompartidos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
         public FrmPedido()
         {
             InitializeComponent();
+            ColorHelper.ChangeColorDefault(this);
+
         }
     }
 }

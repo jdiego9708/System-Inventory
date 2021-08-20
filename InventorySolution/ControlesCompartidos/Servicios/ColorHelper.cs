@@ -61,7 +61,15 @@
                             {
                                 c.BackColor = colorDefaultFondo;
                                 c.ForeColor = colorDefaultLetra;
+                                if (control is Button btn)
+                                {
+                                    btn.FlatAppearance.BorderColor = colorDefaultFondo;
+                                }
                             }
+                        }
+                        else if (control is Button btn)
+                        {
+                            btn.FlatAppearance.BorderColor = colorDefaultFondo;
                         }
                     }
                 }

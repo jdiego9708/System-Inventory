@@ -31,16 +31,16 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPedido));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnProductos = new System.Windows.Forms.Button();
+            this.customGridPanel1 = new ControlesCompartidos.CustomGridPanel();
+            this.customTextBox1 = new ControlesCompartidos.CustomTextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.customTextBox1 = new ControlesCompartidos.CustomTextBox();
-            this.customGridPanel1 = new ControlesCompartidos.CustomGridPanel();
-            this.btnProductos = new System.Windows.Forms.Button();
             this.customGridPanel2 = new ControlesCompartidos.CustomGridPanel();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -58,6 +58,18 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(887, 59);
             this.panel2.TabIndex = 2;
+            this.panel2.Tag = "customColor";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(10, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(254, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Nuevo pedido para la mesa";
             // 
             // button2
             // 
@@ -80,17 +92,6 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Nuevo pedido para la mesa";
-            // 
             // groupBox1
             // 
             this.groupBox1.Location = new System.Drawing.Point(2, 96);
@@ -111,6 +112,65 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Búsqueda de productos";
+            // 
+            // btnProductos
+            // 
+            this.btnProductos.BackColor = System.Drawing.Color.White;
+            this.btnProductos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProductos.BackgroundImage")));
+            this.btnProductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnProductos.FlatAppearance.BorderSize = 0;
+            this.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnProductos.ForeColor = System.Drawing.Color.White;
+            this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProductos.Location = new System.Drawing.Point(11, 24);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(45, 45);
+            this.btnProductos.TabIndex = 8;
+            this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductos.UseVisualStyleBackColor = false;
+            // 
+            // customGridPanel1
+            // 
+            this.customGridPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.customGridPanel1.AutoScroll = true;
+            this.customGridPanel1.Location = new System.Drawing.Point(6, 77);
+            this.customGridPanel1.Name = "customGridPanel1";
+            this.customGridPanel1.PageSize = 10;
+            this.customGridPanel1.Size = new System.Drawing.Size(433, 422);
+            this.customGridPanel1.TabIndex = 7;
+            // 
+            // customTextBox1
+            // 
+            this.customTextBox1.AlignmentDefault = System.Windows.Forms.HorizontalAlignment.Center;
+            this.customTextBox1.AutoSize = true;
+            this.customTextBox1.BackColor = System.Drawing.Color.White;
+            this.customTextBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.customTextBox1.FontStyleDefault = System.Drawing.FontStyle.Regular;
+            this.customTextBox1.FontWordDefault = "Segoe UI";
+            this.customTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.customTextBox1.ForeColorDefault = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.customTextBox1.FormatNumber = null;
+            this.customTextBox1.IsDecimal = false;
+            this.customTextBox1.IsEmail = false;
+            this.customTextBox1.IsNumber = false;
+            this.customTextBox1.IsRequired = false;
+            this.customTextBox1.Location = new System.Drawing.Point(62, 25);
+            this.customTextBox1.Multiline = false;
+            this.customTextBox1.Name = "customTextBox1";
+            this.customTextBox1.Place_holder = "Búsqueda";
+            this.customTextBox1.Size = new System.Drawing.Size(377, 45);
+            this.customTextBox1.SizeFontDefault = 10.5F;
+            this.customTextBox1.TabIndex = 6;
+            this.customTextBox1.Text_description = "Descripción";
+            this.customTextBox1.Texto = "Búsqueda";
+            this.customTextBox1.Validation = true;
             // 
             // radioButton1
             // 
@@ -148,64 +208,6 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Productos seleccionados";
             // 
-            // customTextBox1
-            // 
-            this.customTextBox1.AlignmentDefault = System.Windows.Forms.HorizontalAlignment.Center;
-            this.customTextBox1.BackColor = System.Drawing.Color.White;
-            this.customTextBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.customTextBox1.FontStyleDefault = System.Drawing.FontStyle.Regular;
-            this.customTextBox1.FontWordDefault = "Segoe UI";
-            this.customTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.customTextBox1.ForeColorDefault = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.customTextBox1.FormatNumber = null;
-            this.customTextBox1.IsDecimal = false;
-            this.customTextBox1.IsEmail = false;
-            this.customTextBox1.IsNumber = false;
-            this.customTextBox1.IsRequired = false;
-            this.customTextBox1.Location = new System.Drawing.Point(62, 25);
-            this.customTextBox1.Multiline = false;
-            this.customTextBox1.Name = "customTextBox1";
-            this.customTextBox1.Place_holder = "Búsqueda";
-            this.customTextBox1.Size = new System.Drawing.Size(377, 45);
-            this.customTextBox1.SizeFontDefault = 10.5F;
-            this.customTextBox1.TabIndex = 6;
-            this.customTextBox1.Text_description = "Descripción";
-            this.customTextBox1.Texto = "Búsqueda";
-            this.customTextBox1.Validation = true;
-            // 
-            // customGridPanel1
-            // 
-            this.customGridPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.customGridPanel1.AutoScroll = true;
-            this.customGridPanel1.Location = new System.Drawing.Point(6, 77);
-            this.customGridPanel1.Name = "customGridPanel1";
-            this.customGridPanel1.PageSize = 10;
-            this.customGridPanel1.Size = new System.Drawing.Size(433, 422);
-            this.customGridPanel1.TabIndex = 7;
-            // 
-            // btnProductos
-            // 
-            this.btnProductos.BackColor = System.Drawing.Color.White;
-            this.btnProductos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProductos.BackgroundImage")));
-            this.btnProductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
-            this.btnProductos.FlatAppearance.BorderSize = 0;
-            this.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
-            this.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnProductos.ForeColor = System.Drawing.Color.White;
-            this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProductos.Location = new System.Drawing.Point(11, 24);
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(45, 45);
-            this.btnProductos.TabIndex = 8;
-            this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.UseVisualStyleBackColor = false;
-            // 
             // customGridPanel2
             // 
             this.customGridPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -239,6 +241,7 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -56,7 +56,7 @@
                 SqlCommand SqlCmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Insertar_catalogo",
+                    CommandText = "sp_Catalogo_i",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -131,7 +131,7 @@
                 SqlCommand Sqlcmd = new()
                 {
                     Connection = SqlCon,
-                    CommandText = "sp_Buscar_catalogo",
+                    CommandText = "sp_Catalogo_g",
                     CommandType = CommandType.StoredProcedure
                 };
 

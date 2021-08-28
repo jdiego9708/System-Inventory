@@ -15,6 +15,11 @@ BEGIN
 	FROM Usuarios us 
 	WHERE us.Nombre_usuario like @Texto_busqueda + '%'
 END
+ELSE IF (@Tipo_busqueda = 'COMPLETO')
+BEGIN
+	SELECT *
+	FROM Usuarios us 
+END
 END TRY
 BEGIN CATCH
 DECLARE @Mensaje_error NVARCHAR(4000) = ERROR_MESSAGE();

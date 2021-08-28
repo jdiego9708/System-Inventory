@@ -36,13 +36,15 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnProductos = new System.Windows.Forms.Button();
-            this.customGridPanel1 = new ControlesCompartidos.CustomGridPanel();
+            this.panelBusqueda = new ControlesCompartidos.CustomGridPanel();
             this.customTextBox1 = new ControlesCompartidos.CustomTextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdPlatos = new System.Windows.Forms.RadioButton();
+            this.rdBebidas = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.customGridPanel2 = new ControlesCompartidos.CustomGridPanel();
+            this.panelProductos = new ControlesCompartidos.CustomGridPanel();
+            this.panelCategorias = new ControlesCompartidos.CustomGridPanel();
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +96,7 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panelCategorias);
             this.groupBox1.Location = new System.Drawing.Point(2, 96);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(161, 470);
@@ -104,7 +107,7 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnProductos);
-            this.groupBox2.Controls.Add(this.customGridPanel1);
+            this.groupBox2.Controls.Add(this.panelBusqueda);
             this.groupBox2.Controls.Add(this.customTextBox1);
             this.groupBox2.Location = new System.Drawing.Point(169, 61);
             this.groupBox2.Name = "groupBox2";
@@ -134,17 +137,17 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductos.UseVisualStyleBackColor = false;
             // 
-            // customGridPanel1
+            // panelBusqueda
             // 
-            this.customGridPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.customGridPanel1.AutoScroll = true;
-            this.customGridPanel1.Location = new System.Drawing.Point(6, 77);
-            this.customGridPanel1.Name = "customGridPanel1";
-            this.customGridPanel1.PageSize = 10;
-            this.customGridPanel1.Size = new System.Drawing.Size(433, 422);
-            this.customGridPanel1.TabIndex = 7;
+            this.panelBusqueda.AutoScroll = true;
+            this.panelBusqueda.Location = new System.Drawing.Point(6, 77);
+            this.panelBusqueda.Name = "panelBusqueda";
+            this.panelBusqueda.PageSize = 10;
+            this.panelBusqueda.Size = new System.Drawing.Size(433, 422);
+            this.panelBusqueda.TabIndex = 7;
             // 
             // customTextBox1
             // 
@@ -172,35 +175,35 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.customTextBox1.Texto = "Búsqueda";
             this.customTextBox1.Validation = true;
             // 
-            // radioButton1
+            // rdPlatos
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton1.Location = new System.Drawing.Point(7, 65);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(70, 25);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Platos";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdPlatos.AutoSize = true;
+            this.rdPlatos.Checked = true;
+            this.rdPlatos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdPlatos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdPlatos.Location = new System.Drawing.Point(7, 65);
+            this.rdPlatos.Name = "rdPlatos";
+            this.rdPlatos.Size = new System.Drawing.Size(70, 25);
+            this.rdPlatos.TabIndex = 0;
+            this.rdPlatos.TabStop = true;
+            this.rdPlatos.Text = "Platos";
+            this.rdPlatos.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdBebidas
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton2.Location = new System.Drawing.Point(84, 65);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(82, 25);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.Text = "Bebidas";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdBebidas.AutoSize = true;
+            this.rdBebidas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdBebidas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdBebidas.Location = new System.Drawing.Point(84, 65);
+            this.rdBebidas.Name = "rdBebidas";
+            this.rdBebidas.Size = new System.Drawing.Size(82, 25);
+            this.rdBebidas.TabIndex = 5;
+            this.rdBebidas.Text = "Bebidas";
+            this.rdBebidas.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.customGridPanel2);
+            this.groupBox3.Controls.Add(this.panelProductos);
             this.groupBox3.Location = new System.Drawing.Point(620, 61);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(267, 505);
@@ -208,17 +211,29 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Productos seleccionados";
             // 
-            // customGridPanel2
+            // panelProductos
             // 
-            this.customGridPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.customGridPanel2.AutoScroll = true;
-            this.customGridPanel2.Location = new System.Drawing.Point(6, 26);
-            this.customGridPanel2.Name = "customGridPanel2";
-            this.customGridPanel2.PageSize = 10;
-            this.customGridPanel2.Size = new System.Drawing.Size(255, 473);
-            this.customGridPanel2.TabIndex = 8;
+            this.panelProductos.AutoScroll = true;
+            this.panelProductos.Location = new System.Drawing.Point(6, 26);
+            this.panelProductos.Name = "panelProductos";
+            this.panelProductos.PageSize = 10;
+            this.panelProductos.Size = new System.Drawing.Size(255, 473);
+            this.panelProductos.TabIndex = 8;
+            // 
+            // panelCategorias
+            // 
+            this.panelCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelCategorias.AutoScroll = true;
+            this.panelCategorias.Location = new System.Drawing.Point(8, 26);
+            this.panelCategorias.Name = "panelCategorias";
+            this.panelCategorias.PageSize = 10;
+            this.panelCategorias.Size = new System.Drawing.Size(147, 438);
+            this.panelCategorias.TabIndex = 9;
             // 
             // FrmPedido
             // 
@@ -227,8 +242,8 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(889, 568);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rdBebidas);
+            this.Controls.Add(this.rdPlatos);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
@@ -240,6 +255,7 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.Text = "Pedido";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -255,12 +271,13 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdPlatos;
+        private System.Windows.Forms.RadioButton rdBebidas;
         private System.Windows.Forms.GroupBox groupBox3;
         private ControlesCompartidos.CustomTextBox customTextBox1;
-        private ControlesCompartidos.CustomGridPanel customGridPanel1;
+        private ControlesCompartidos.CustomGridPanel panelBusqueda;
         private System.Windows.Forms.Button btnProductos;
-        private ControlesCompartidos.CustomGridPanel customGridPanel2;
+        private ControlesCompartidos.CustomGridPanel panelProductos;
+        private ControlesCompartidos.CustomGridPanel panelCategorias;
     }
 }

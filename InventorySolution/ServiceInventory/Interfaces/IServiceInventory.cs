@@ -7,10 +7,13 @@ namespace ServiceInventory.Interfaces
 {
     public interface IServiceInventory
     {
+        Task<(string rpta, DataSet ds)> BuscarUsuarios(string tipo_busqueda, string texto_busqueda);
+        Task<(string rpta, DataSet ds)> BuscarProductos(string tipo_busqueda, string texto_busqueda);
         Task<(string rpta, DataSet ds)> BuscarPedidos(string tipo_busqueda, string texto_busqueda);
         Task<(string rpta, int id_tipo)> InsertarCatalogo(Catalogo catalogo);
         Task<(string rpta, DataSet ds)> BuscarCatalogo(string tipo_busqueda, string texto_busqueda);
         Task<(string rpta, DataSet ds)> LoadCatalogo(string tipo_busqueda, string texto_busqueda);
         Task<(string rpta, List<object> objects)> Login(int pin, string fecha);
+        Task<(string rpta, int id_usuario)> InsertarUsuario(Usuarios usuario);
     }
 }

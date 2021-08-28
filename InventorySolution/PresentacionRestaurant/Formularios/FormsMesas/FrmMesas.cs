@@ -95,7 +95,7 @@ namespace PresentacionRestaurant.Formularios.FormsMesas
                 else
                 {
                     this.panelMesas.clearDataSource();
-                    Image image = (Image)Resources.ResourceManager.GetObject("SIN IMAGENES.jpg");
+                    Image image = (Image)Resources.ResourceManager.GetObject("SIN_IMAGENES.jpg");
                     this.panelMesas.BackgroundImage = image;
                 }
             }

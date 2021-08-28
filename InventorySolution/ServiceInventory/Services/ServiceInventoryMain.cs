@@ -29,6 +29,16 @@ namespace ServiceInventory.Services
             this.IAccesoDatosCatalogo = accesoDatosCatalogo;
         }
 
+        public async Task<(string rpta, DataSet ds)> BuscarUsuarios(string tipo_busqueda, string texto_busqueda)
+        {
+            return await this.IAccesoDatosUsuarios.BuscarUsuarios(tipo_busqueda, texto_busqueda);
+        }
+
+        public async Task<(string rpta, DataSet ds)> BuscarProductos(string tipo_busqueda, string texto_busqueda)
+        {
+            return await this.IAccesoDatosProductos.BuscarProductos(tipo_busqueda, texto_busqueda);
+        }
+
         public async Task<(string rpta, DataSet ds)> BuscarPedidos(string tipo_busqueda, string texto_busqueda)
         {
             return await this.IAccesoDatosPedidos.BuscarPedidos(tipo_busqueda, texto_busqueda);
@@ -42,6 +52,11 @@ namespace ServiceInventory.Services
         public async Task<(string rpta, int id_tipo)> InsertarCatalogo(Catalogo catalogo)
         {
             return await this.IAccesoDatosCatalogo.InsertarCatalogo(catalogo);
+        }
+
+        public async Task<(string rpta, int id_usuario)> InsertarUsuario(Usuarios usuario)
+        {
+            return await this.IAccesoDatosUsuarios.InsertarUsuarios(usuario);
         }
 
         public async Task<(string rpta, DataSet ds)> LoadCatalogo(string tipo_busqueda, string texto_busqueda)

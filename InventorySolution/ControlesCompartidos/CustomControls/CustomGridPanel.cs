@@ -110,7 +110,7 @@ namespace ControlesCompartidos
             this.Controls.Clear();
         }
 
-        private void RefreshPanel(UserControl control)
+        public void RefreshPanel(UserControl control)
         {
             //Limpiar todos los controles que tengamos
             this.Controls.Clear();
@@ -175,7 +175,7 @@ namespace ControlesCompartidos
             }
         }
 
-        private void RefreshPanel(Control control)
+        public void RefreshPanel(Control control)
         {
             //Limpiar todos los controles que tengamos
             this.Controls.Clear();

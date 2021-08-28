@@ -3,6 +3,7 @@ namespace PresentacionInventory
     using AccesoDatosInventory;
     using AccesoDatosInventory.Interfaces;
     using ControlesCompartidos;
+    using ControlesCompartidos.Interfaces;
     using EntidadesInventory;
     using EntidadesInventory.Helpers;
     using EntidadesInventory.Models;
@@ -58,9 +59,10 @@ namespace PresentacionInventory
                 .AddScoped<IAccesoDatosProductos, DProductos>()
                 .AddScoped<IAccesoDatosCatalogo, DCatalogo>()
                 .AddScoped<IServiceInventory, ServiceInventoryMain>()
+                .AddScoped<IServiceList, ServiceList>()
                 .AddScoped<FrmLogin>()
                 .AddScoped<FrmPrincipal>()
-                .AddScoped<FrmMesas>();
+                .AddScoped<FrmMesas>();            
         }
     }
 }

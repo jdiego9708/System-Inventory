@@ -3,6 +3,7 @@
     using ControlesCompartidos;
     using EntidadesInventory;
     using EntidadesInventory.Helpers;
+    using PresentacionInventory.Formularios.FormsUsuarios;
     using PresentacionRestaurant.Formularios.FormsMesas;
     using System;
     using System.Windows.Forms;
@@ -14,8 +15,22 @@
             InitializeComponent();
             this.Load += FrmPrincipal_Load;
             this.btnMesas.Click += BtnMesas_Click;
+            this.btnEmpleados.Click += BtnEmpleados_Click;
             this.FormClosed += FrmPrincipal_FormClosed;
             ColorHelper.ChangeColorDefault(this);
+        }
+
+        private void BtnEmpleados_Click(object sender, EventArgs e)
+        {
+            if (this.panelPrincipal.Controls.Count > 0)
+                this.panelPrincipal.Controls.Clear();
+
+            FrmUsuarios frmUsuarios = new()
+            {
+                TopLevel = false,
+            };
+            this.panelPrincipal.Controls.Add(frmUsuarios);
+            frmUsuarios.Show();
         }
 
         private void FrmPrincipal_FormClosed(object sender, FormClosedEventArgs e)

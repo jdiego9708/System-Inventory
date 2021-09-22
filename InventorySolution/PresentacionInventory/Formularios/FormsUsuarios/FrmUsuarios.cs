@@ -107,7 +107,7 @@
         private void FrmAddUsuarios_OnUsuarioSuccess(object sender, EventArgs e)
         {
             Usuarios us = (Usuarios)sender;
-            UsuarioSmall usuarioSmall = new UsuarioSmall
+            UsuarioSmall usuarioSmall = new()
             {
                 Usuario = us,
             };

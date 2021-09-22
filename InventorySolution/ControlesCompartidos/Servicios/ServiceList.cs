@@ -29,5 +29,17 @@ namespace ControlesCompartidos
                 c.DisplayMember = "Nombre_tipo";
             }
         }
+
+        public async Task LoadTipoProductos(ComboBox c)
+        {
+            (_, DataSet ds) = await this.ServiceInventory.LoadCatalogo("CATALOGO PADRE", "TIPO DE PRODUCTOS");
+            if (ds != null)
+            {
+                c.DataSource = null;
+                c.DataSource = ds.Tables[0];
+                c.ValueMember = "Id_tipo";
+                c.DisplayMember = "Nombre_tipo";
+            }
+        }
     }
 }

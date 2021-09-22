@@ -30,7 +30,7 @@
             this.rdBebidas.CheckedChanged += RdBebidas_CheckedChanged;
         }
 
-        public void AddProducts(ProductoPedidoBindingModel product)
+        public void AddProduct(ProductoPedidoBindingModel product)
         {
             try
             {
@@ -79,7 +79,66 @@
             }
             catch (Exception ex)
             {
-                
+                ErrorModel error = new(ex);
+                error.CustomMessage = $"Form: {this.Name} | Método: AddProducts(ProductoPedidoBindingModel product) | ";
+                MainViewModel.GetError(error);
+                MensajesService.MensajeErrorCompleto(error);
+            }
+        }
+
+        public void RemoveProduct(ProductoPedidoBindingModel product)
+        {
+            try
+            {
+                //Comprobar existencia del producto en los productos seleccionados
+                if (this.ProductsSelected != null)
+                {
+                    List<ProductoPedidoBindingModel> findProductsSelected =
+                        this.ProductsSelected.Where(x => x.Id_producto == product.Id_producto).ToList();
+                    if (findProductsSelected.Count > 0)
+                    {
+                        ProductoPedidoBindingModel productSelected = findProductsSelected[0];
+                        //productSelected.DetallePedido.Cantidad++;
+                    }
+                    else
+                    {
+                        this.ProductsSelected.Add(new ProductoPedidoBindingModel()
+                        {
+                            Producto = product.Producto,
+                            Id_producto = product.Id_producto,
+                            DetallePedido = product.DetallePedido,
+                        });
+                    }
+                }
+
+                //Comprobar existencia del producto en los productos nuevos seleccionados 
+                if (this.ProductsAddSelected != null)
+                {
+                    List<ProductoPedidoBindingModel> findProductsSelected =
+                        this.ProductsAddSelected.Where(x => x.Id_producto == product.Id_producto).ToList();
+                    if (findProductsSelected.Count > 0)
+                    {
+                        ProductoPedidoBindingModel productSelected = findProductsSelected[0];
+                        productSelected.DetallePedido.Cantidad++;
+                    }
+                    else
+                    {
+                        this.ProductsSelected.Add(new ProductoPedidoBindingModel()
+                        {
+                            Producto = product.Producto,
+                            Id_producto = product.Id_producto,
+                            DetallePedido = product.DetallePedido,
+                        });
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ErrorModel error = new(ex);
+                error.CustomMessage = $"Form: {this.Name} | Método: AddProducts(ProductoPedidoBindingModel product) | ";
+                MainViewModel.GetError(error);
+                MensajesService.MensajeErrorCompleto(error);
             }
         }
 
@@ -108,6 +167,9 @@
             {
                 var (rpta, dsProducts) =
                    await this.ServiceInventory.BuscarProductos(tipo_busqueda, texto_busqueda);
+
+                this.panelBusqueda.clearDataSource();
+
                 if (dsProducts != null)
                 {
                     DataTable dtProducts = dsProducts.Tables[0];
@@ -181,11 +243,13 @@
         private void ProductoSmall_OnRemoveButtonClick(object sender, EventArgs e)
         {
             ProductoPedidoBindingModel product = (ProductoPedidoBindingModel)sender;
+            this.RemoveProduct(product);
         }
 
         private void ProductoSmall_OnAddButtonClick(object sender, EventArgs e)
         {
             ProductoPedidoBindingModel product = (ProductoPedidoBindingModel)sender;
+            this.AddProduct(product);
         }
 
         private async Task LoadCategorias(string tipo_busqueda, string texto_busqueda)
@@ -194,6 +258,9 @@
             {
                 var (rpta, dsCategorias) = 
                     await this.ServiceInventory.BuscarCatalogo(tipo_busqueda, texto_busqueda);
+
+                this.panelCategorias.clearDataSource();
+
                 if (dsCategorias != null)
                 {
                     DataTable dtCategorias = dsCategorias.Tables[0];
@@ -248,6 +315,8 @@
             }          
             this.label1.Text = $"Agregar/Remover productos | {pedido.Tipo_pedido}";
         }
+
+        public event EventHandler OnBtnPedidoSucess;
 
         public List<ProductoPedidoBindingModel> ProductsSelected { get; set; }
         public List<ProductoPedidoBindingModel> ProductsAddSelected { get; set; }

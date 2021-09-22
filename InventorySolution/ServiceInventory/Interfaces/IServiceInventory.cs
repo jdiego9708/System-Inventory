@@ -15,5 +15,6 @@ namespace ServiceInventory.Interfaces
         Task<(string rpta, DataSet ds)> LoadCatalogo(string tipo_busqueda, string texto_busqueda);
         Task<(string rpta, List<object> objects)> Login(int pin, string fecha);
         Task<(string rpta, int id_usuario)> InsertarUsuario(Usuarios usuario);
+        Task<(string rpta, int id_usuario)> InsertarProducto(Productos product);
     }
 }

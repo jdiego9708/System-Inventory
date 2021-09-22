@@ -1,6 +1,7 @@
 ﻿using EntidadesInventory.BindingModels;
 using EntidadesInventory.Helpers;
 using EntidadesInventory.Models;
+using PresentacionRestaurant.Formularios.FormsPedidos;
 using PresentacionRestaurant.Properties;
 using PresentacionRestaurant.ServicesRestaurant;
 using ServiceInventory.Interfaces;
@@ -71,6 +72,7 @@ namespace PresentacionRestaurant.Formularios.FormsMesas
                             Estado_mesa = "DISPONIBLE",
                             Pedido = null,
                         };
+                        customButtonMesa.Mesa = mesa;
                     }
                     else
                     {
@@ -81,6 +83,7 @@ namespace PresentacionRestaurant.Formularios.FormsMesas
                             Estado_mesa = estado_mesa,
                             Pedido = mesaPedido,
                         };
+                        customButtonMesa.Mesa = mesa;
                     }
 
                     conteo_mesas++;
@@ -109,6 +112,25 @@ namespace PresentacionRestaurant.Formularios.FormsMesas
         }
 
         private void CustomButtonMesa_OnBtnMesaClick(object sender, EventArgs e)
+        {
+            MesaBindingModel mesa = (MesaBindingModel)sender;
+            if (mesa.Estado_mesa.Equals("DISPONIBLE"))
+            {
+                FrmPedido frmPedido = new()
+                {
+                    WindowState = FormWindowState.Maximized,
+                    MaximizeBox = false,
+                };
+                frmPedido.OnBtnPedidoSucess += FrmPedido_OnBtnPedidoSucess;
+                frmPedido.ShowDialog();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void FrmPedido_OnBtnPedidoSucess(object sender, EventArgs e)
         {
             
         }

@@ -85,8 +85,8 @@
             FrmMensajeErrorCompleto FrmMensajeError = new FrmMensajeErrorCompleto
             {
                 StartPosition = FormStartPosition.CenterScreen,
-                InformacionCorta = error.CustomMessage,
-                DetalleInformacion = $"Código de error: {error.ErrorCode} | Detalle: {error.ErrorMessage}",
+                InformacionCorta = "Error",
+                DetalleInformacion = $"{error.CustomMessage} | Código de error: {error.ErrorCode} | Detalle: {error.ErrorMessage}",
             };
             FrmMensajeError.ShowDialog();
         }

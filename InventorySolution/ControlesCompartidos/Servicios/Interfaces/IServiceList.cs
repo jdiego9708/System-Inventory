@@ -6,5 +6,7 @@ namespace ControlesCompartidos.Interfaces
     public interface IServiceList
     {
         Task LoadTipoUsuarios(ComboBox c);
+
+        Task LoadTipoProductos(ComboBox c);
     }
 }

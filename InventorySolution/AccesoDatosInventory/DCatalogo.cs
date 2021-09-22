@@ -172,7 +172,11 @@
                 rpta = ex.Message;
                 ds = null;
             }
-
+            finally
+            {
+                if (this.SqlCon.State == ConnectionState.Open)
+                    this.SqlCon.Close();
+            }
             return (rpta, ds);
         }
 

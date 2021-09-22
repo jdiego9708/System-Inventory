@@ -14,7 +14,7 @@
         public IServiceInventory ServiceInventory { get; set; }
 
         public FrmAddUsuarios()
-        {           
+        {
             InitializeComponent();
 
             this.ServiceList = ServiceDIHelper.GetService<IServiceList>();

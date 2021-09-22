@@ -34,6 +34,7 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panelCategorias = new ControlesCompartidos.CustomGridPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnProductos = new System.Windows.Forms.Button();
             this.panelBusqueda = new ControlesCompartidos.CustomGridPanel();
@@ -42,7 +43,6 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.rdBebidas = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panelProductos = new ControlesCompartidos.CustomGridPanel();
-            this.panelCategorias = new ControlesCompartidos.CustomGridPanel();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -96,22 +96,38 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.panelCategorias);
             this.groupBox1.Location = new System.Drawing.Point(2, 96);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(161, 470);
+            this.groupBox1.Size = new System.Drawing.Size(185, 470);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Categorías";
             // 
+            // panelCategorias
+            // 
+            this.panelCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelCategorias.AutoScroll = true;
+            this.panelCategorias.Location = new System.Drawing.Point(8, 26);
+            this.panelCategorias.Name = "panelCategorias";
+            this.panelCategorias.PageSize = 10;
+            this.panelCategorias.Size = new System.Drawing.Size(171, 438);
+            this.panelCategorias.TabIndex = 9;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.btnProductos);
             this.groupBox2.Controls.Add(this.panelBusqueda);
             this.groupBox2.Controls.Add(this.customTextBox1);
-            this.groupBox2.Location = new System.Drawing.Point(169, 61);
+            this.groupBox2.Location = new System.Drawing.Point(193, 61);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(445, 505);
+            this.groupBox2.Size = new System.Drawing.Size(459, 505);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Búsqueda de productos";
@@ -146,7 +162,7 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.panelBusqueda.Location = new System.Drawing.Point(6, 77);
             this.panelBusqueda.Name = "panelBusqueda";
             this.panelBusqueda.PageSize = 10;
-            this.panelBusqueda.Size = new System.Drawing.Size(433, 422);
+            this.panelBusqueda.Size = new System.Drawing.Size(447, 422);
             this.panelBusqueda.TabIndex = 7;
             // 
             // customTextBox1
@@ -168,7 +184,7 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.customTextBox1.Multiline = false;
             this.customTextBox1.Name = "customTextBox1";
             this.customTextBox1.Place_holder = "Búsqueda";
-            this.customTextBox1.Size = new System.Drawing.Size(377, 45);
+            this.customTextBox1.Size = new System.Drawing.Size(391, 45);
             this.customTextBox1.SizeFontDefault = 10.5F;
             this.customTextBox1.TabIndex = 6;
             this.customTextBox1.Text_description = "Descripción";
@@ -203,10 +219,13 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.panelProductos);
-            this.groupBox3.Location = new System.Drawing.Point(620, 61);
+            this.groupBox3.Location = new System.Drawing.Point(658, 61);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(267, 505);
+            this.groupBox3.Size = new System.Drawing.Size(229, 505);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Productos seleccionados";
@@ -220,20 +239,8 @@ namespace PresentacionRestaurant.Formularios.FormsPedidos
             this.panelProductos.Location = new System.Drawing.Point(6, 26);
             this.panelProductos.Name = "panelProductos";
             this.panelProductos.PageSize = 10;
-            this.panelProductos.Size = new System.Drawing.Size(255, 473);
+            this.panelProductos.Size = new System.Drawing.Size(217, 473);
             this.panelProductos.TabIndex = 8;
-            // 
-            // panelCategorias
-            // 
-            this.panelCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelCategorias.AutoScroll = true;
-            this.panelCategorias.Location = new System.Drawing.Point(8, 26);
-            this.panelCategorias.Name = "panelCategorias";
-            this.panelCategorias.PageSize = 10;
-            this.panelCategorias.Size = new System.Drawing.Size(147, 438);
-            this.panelCategorias.TabIndex = 9;
             // 
             // FrmPedido
             // 

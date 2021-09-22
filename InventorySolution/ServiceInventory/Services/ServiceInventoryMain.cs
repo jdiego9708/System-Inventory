@@ -59,6 +59,11 @@ namespace ServiceInventory.Services
             return await this.IAccesoDatosUsuarios.InsertarUsuarios(usuario);
         }
 
+        public async Task<(string rpta, int id_usuario)> InsertarProducto(Productos product)
+        {
+            return await this.IAccesoDatosProductos.InsertarProducto(product);
+        }
+
         public async Task<(string rpta, DataSet ds)> LoadCatalogo(string tipo_busqueda, string texto_busqueda)
         {
             return await this.IAccesoDatosCatalogo.BuscarCatalogo(tipo_busqueda, texto_busqueda);

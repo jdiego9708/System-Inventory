@@ -20,7 +20,7 @@ namespace ControlesCompartidos
 
         public async Task LoadTipoUsuarios(ComboBox c)
         {
-            (_, DataSet ds) = await this.ServiceInventory.LoadCatalogo("CATALOGO PADRE", "TIPO DE USUARIOS");
+            (_, DataSet ds) = await this.ServiceInventory.LoadCatalogo("CATALOGO PADRE", "TIPOS DE USUARIOS");
             if (ds != null)
             {
                 c.DataSource = null;
@@ -32,7 +32,19 @@ namespace ControlesCompartidos
 
         public async Task LoadTipoProductos(ComboBox c)
         {
-            (_, DataSet ds) = await this.ServiceInventory.LoadCatalogo("CATALOGO PADRE", "TIPO DE PRODUCTOS");
+            (_, DataSet ds) = await this.ServiceInventory.LoadCatalogo("CATALOGO PADRE", "TIPOS DE PRODUCTOS");
+            if (ds != null)
+            {
+                c.DataSource = null;
+                c.DataSource = ds.Tables[0];
+                c.ValueMember = "Id_tipo";
+                c.DisplayMember = "Nombre_tipo";
+            }
+        }
+
+        public async Task LoadListGenericXIdPadre(ComboBox c, int id_catalogo)
+        {
+            (_, DataSet ds) = await this.ServiceInventory.LoadCatalogo("ID PADRE", id_catalogo.ToString());
             if (ds != null)
             {
                 c.DataSource = null;

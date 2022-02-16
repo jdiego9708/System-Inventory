@@ -5,9 +5,9 @@
     using System.Text;
     using System.Windows.Forms;
 
-    public partial class ProductoSmall : UserControl
+    public partial class ProductoPedidoSmall : UserControl
     {
-        public ProductoSmall()
+        public ProductoPedidoSmall()
         {
             InitializeComponent();
             this._producto = new();

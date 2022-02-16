@@ -177,7 +177,7 @@
                     foreach(DataRow row in dtProducts.Rows)
                     {
                         Productos producto = new(row);
-                        ProductoSmall productoSmall = new()
+                        ProductoPedidoSmall productoSmall = new()
                         {
                             Producto = new ProductoPedidoBindingModel
                             { 
@@ -212,7 +212,7 @@
 
                 foreach(ProductoPedidoBindingModel product in products)
                 {
-                    ProductoSmall productoSmall = new()
+                    ProductoPedidoSmall productoSmall = new()
                     {
                         Producto = product,
                     };

@@ -96,6 +96,16 @@
                 SqlCmd.Parameters.Add(Precio_producto);
                 contador++;
 
+                SqlParameter Imagen_producto = new()
+                {
+                    ParameterName = "@Imagen_producto",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 200,
+                    Value = producto.Imagen_producto.Trim(),
+                };
+                SqlCmd.Parameters.Add(Imagen_producto);
+                contador++;
+
                 SqlParameter Descripcion_producto = new()
                 {
                     ParameterName = "@Descripcion_producto",
@@ -216,6 +226,16 @@
                     Value = producto.Precio_producto,
                 };
                 SqlCmd.Parameters.Add(Precio_producto);
+                contador++;
+
+                SqlParameter Imagen_producto = new()
+                {
+                    ParameterName = "@Imagen_producto",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 200,
+                    Value = producto.Imagen_producto.Trim(),
+                };
+                SqlCmd.Parameters.Add(Imagen_producto);
                 contador++;
 
                 SqlParameter Descripcion_producto = new()

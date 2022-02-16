@@ -33,11 +33,11 @@ namespace PresentacionInventory.Formularios.FormsProductos
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnReportes = new System.Windows.Forms.Button();
-            this.btnAddUsuario = new System.Windows.Forms.Button();
+            this.btnAddProduct = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtBusqueda = new ControlesCompartidos.CustomTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panelUsuarios = new ControlesCompartidos.CustomGridPanel();
+            this.panelProducts = new ControlesCompartidos.CustomGridPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -47,7 +47,7 @@ namespace PresentacionInventory.Formularios.FormsProductos
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnReportes);
-            this.groupBox1.Controls.Add(this.btnAddUsuario);
+            this.groupBox1.Controls.Add(this.btnAddProduct);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(114, 78);
@@ -77,27 +77,27 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.toolTip1.SetToolTip(this.btnReportes, "Estadísticas de usuarios");
             this.btnReportes.UseVisualStyleBackColor = false;
             // 
-            // btnAddUsuario
+            // btnAddProduct
             // 
-            this.btnAddUsuario.BackColor = System.Drawing.Color.White;
-            this.btnAddUsuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddUsuario.BackgroundImage")));
-            this.btnAddUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddUsuario.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
-            this.btnAddUsuario.FlatAppearance.BorderSize = 0;
-            this.btnAddUsuario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
-            this.btnAddUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAddUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnAddUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddUsuario.Location = new System.Drawing.Point(6, 24);
-            this.btnAddUsuario.Name = "btnAddUsuario";
-            this.btnAddUsuario.Size = new System.Drawing.Size(45, 45);
-            this.btnAddUsuario.TabIndex = 9;
-            this.btnAddUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip1.SetToolTip(this.btnAddUsuario, "Agregar un nuevo usuario");
-            this.btnAddUsuario.UseVisualStyleBackColor = false;
+            this.btnAddProduct.BackColor = System.Drawing.Color.White;
+            this.btnAddProduct.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddProduct.BackgroundImage")));
+            this.btnAddProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddProduct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddProduct.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnAddProduct.FlatAppearance.BorderSize = 0;
+            this.btnAddProduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
+            this.btnAddProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddProduct.ForeColor = System.Drawing.Color.White;
+            this.btnAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddProduct.Location = new System.Drawing.Point(6, 24);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(45, 45);
+            this.btnAddProduct.TabIndex = 9;
+            this.btnAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.btnAddProduct, "Agregar un nuevo usuario");
+            this.btnAddProduct.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
@@ -144,7 +144,7 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.panelUsuarios);
+            this.groupBox3.Controls.Add(this.panelProducts);
             this.groupBox3.Location = new System.Drawing.Point(12, 96);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(847, 422);
@@ -152,17 +152,17 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Resultados";
             // 
-            // panelUsuarios
+            // panelProducts
             // 
-            this.panelUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelUsuarios.AutoScroll = true;
-            this.panelUsuarios.Location = new System.Drawing.Point(6, 24);
-            this.panelUsuarios.Name = "panelUsuarios";
-            this.panelUsuarios.PageSize = 10;
-            this.panelUsuarios.Size = new System.Drawing.Size(835, 392);
-            this.panelUsuarios.TabIndex = 0;
+            this.panelProducts.AutoScroll = true;
+            this.panelProducts.Location = new System.Drawing.Point(6, 24);
+            this.panelProducts.Name = "panelProducts";
+            this.panelProducts.PageSize = 10;
+            this.panelProducts.Size = new System.Drawing.Size(835, 392);
+            this.panelProducts.TabIndex = 0;
             // 
             // FrmProductos
             // 
@@ -190,10 +190,10 @@ namespace PresentacionInventory.Formularios.FormsProductos
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnAddUsuario;
+        private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.GroupBox groupBox2;
         private ControlesCompartidos.CustomTextBox txtBusqueda;
         private System.Windows.Forms.GroupBox groupBox3;
-        private ControlesCompartidos.CustomGridPanel panelUsuarios;
+        private ControlesCompartidos.CustomGridPanel panelProducts;
     }
 }

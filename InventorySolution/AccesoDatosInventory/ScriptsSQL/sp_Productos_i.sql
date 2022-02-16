@@ -3,6 +3,7 @@ CREATE OR ALTER PROC sp_Productos_i
 @Id_tipo_producto int,
 @Nombre_producto varchar(50),
 @Precio_producto decimal(19, 2),
+@Imagen_producto varchar(200),
 @Descripcion_producto varchar(200),
 @Estado_producto varchar(50),
 @Fecha date,
@@ -11,7 +12,7 @@ AS
 BEGIN TRY
 
 INSERT INTO Productos
-VALUES (@Id_tipo_producto, @Nombre_producto, @Precio_producto, 
+VALUES (@Id_tipo_producto, @Nombre_producto, @Precio_producto, @Imagen_producto,
 @Descripcion_producto, @Estado_producto);
 
 SET @Id_producto = SCOPE_IDENTITY();

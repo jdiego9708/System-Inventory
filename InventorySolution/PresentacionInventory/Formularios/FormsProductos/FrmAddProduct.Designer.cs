@@ -40,9 +40,13 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.uploadImagenProcuto = new ControlesCompartidos.UploadImage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.listaSubTipo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -73,7 +77,7 @@ namespace PresentacionInventory.Formularios.FormsProductos
             // 
             this.groupBox2.Location = new System.Drawing.Point(12, 77);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(214, 64);
+            this.groupBox2.Size = new System.Drawing.Size(123, 64);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Precio";
@@ -88,16 +92,16 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.txtPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtPrecio.Location = new System.Drawing.Point(15, 105);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(205, 22);
+            this.txtPrecio.Size = new System.Drawing.Size(114, 22);
             this.txtPrecio.TabIndex = 0;
             this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.listaTipoProductos);
-            this.groupBox3.Location = new System.Drawing.Point(232, 77);
+            this.groupBox3.Location = new System.Drawing.Point(141, 77);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(214, 64);
+            this.groupBox3.Size = new System.Drawing.Size(145, 64);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tipo";
@@ -112,13 +116,13 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.listaTipoProductos.FormattingEnabled = true;
             this.listaTipoProductos.Location = new System.Drawing.Point(6, 25);
             this.listaTipoProductos.Name = "listaTipoProductos";
-            this.listaTipoProductos.Size = new System.Drawing.Size(202, 29);
+            this.listaTipoProductos.Size = new System.Drawing.Size(133, 29);
             this.listaTipoProductos.TabIndex = 20;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtDescripcion);
-            this.groupBox4.Location = new System.Drawing.Point(12, 142);
+            this.groupBox4.Location = new System.Drawing.Point(12, 333);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(434, 123);
             this.groupBox4.TabIndex = 2;
@@ -154,7 +158,7 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(12, 271);
+            this.btnCancelar.Location = new System.Drawing.Point(12, 462);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(114, 45);
             this.btnCancelar.TabIndex = 19;
@@ -174,7 +178,7 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.Location = new System.Drawing.Point(336, 271);
+            this.btnSave.Location = new System.Drawing.Point(336, 462);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 45);
             this.btnSave.TabIndex = 18;
@@ -182,12 +186,59 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.UseVisualStyleBackColor = false;
             // 
+            // uploadImagenProcuto
+            // 
+            this.uploadImagenProcuto.BackColor = System.Drawing.Color.White;
+            this.uploadImagenProcuto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uploadImagenProcuto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uploadImagenProcuto.Imagen = null;
+            this.uploadImagenProcuto.IsVisibleBtnConfig = false;
+            this.uploadImagenProcuto.IsVisibleBtnEliminar = false;
+            this.uploadImagenProcuto.IsVisibleBtnLimpiar = false;
+            this.uploadImagenProcuto.IsVisibleBtnObservaciones = false;
+            this.uploadImagenProcuto.IsVisibleBtnScreen = false;
+            this.uploadImagenProcuto.Location = new System.Drawing.Point(33, 147);
+            this.uploadImagenProcuto.Name = "uploadImagenProcuto";
+            this.uploadImagenProcuto.Nombre_imagen = null;
+            this.uploadImagenProcuto.Numero_imagen = 0;
+            this.uploadImagenProcuto.Observaciones = null;
+            this.uploadImagenProcuto.Ruta_destino = null;
+            this.uploadImagenProcuto.Ruta_origen = null;
+            this.uploadImagenProcuto.Size = new System.Drawing.Size(386, 180);
+            this.uploadImagenProcuto.TabIndex = 20;
+            this.uploadImagenProcuto.Tipo_imagen = null;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.listaSubTipo);
+            this.groupBox5.Location = new System.Drawing.Point(292, 77);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(154, 64);
+            this.groupBox5.TabIndex = 21;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Subtipo";
+            // 
+            // listaSubTipo
+            // 
+            this.listaSubTipo.BackColor = System.Drawing.Color.White;
+            this.listaSubTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.listaSubTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.listaSubTipo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listaSubTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listaSubTipo.FormattingEnabled = true;
+            this.listaSubTipo.Location = new System.Drawing.Point(6, 25);
+            this.listaSubTipo.Name = "listaSubTipo";
+            this.listaSubTipo.Size = new System.Drawing.Size(142, 29);
+            this.listaSubTipo.TabIndex = 20;
+            // 
             // FrmAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(461, 326);
+            this.ClientSize = new System.Drawing.Size(461, 515);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.uploadImagenProcuto);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox4);
@@ -205,6 +256,7 @@ namespace PresentacionInventory.Formularios.FormsProductos
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,5 +274,8 @@ namespace PresentacionInventory.Formularios.FormsProductos
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox listaTipoProductos;
+        private ControlesCompartidos.UploadImage uploadImagenProcuto;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox listaSubTipo;
     }
 }

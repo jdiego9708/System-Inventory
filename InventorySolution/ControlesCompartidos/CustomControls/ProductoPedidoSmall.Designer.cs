@@ -1,7 +1,7 @@
 ﻿
 namespace ControlesCompartidos.CustomControls
 {
-    partial class ProductoSmall
+    partial class ProductoPedidoSmall
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@ namespace ControlesCompartidos.CustomControls
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductoSmall));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductoPedidoSmall));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pxImagen = new System.Windows.Forms.PictureBox();
             this.txtInfo = new System.Windows.Forms.TextBox();

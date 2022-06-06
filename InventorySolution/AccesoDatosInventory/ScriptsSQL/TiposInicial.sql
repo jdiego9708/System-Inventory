@@ -68,6 +68,19 @@ INSERT INTO Catalogo
 VALUES(@IdPadre,'CERVEZAS');
 
 INSERT INTO Catalogo 
+VALUES(@IdPadreProductos,'COMIDA VARIA');
+SET @IdPadre = SCOPE_IDENTITY();
+
+INSERT INTO Catalogo 
+VALUES(@IdPadre,'SALCHICHAS');
+
+INSERT INTO Catalogo 
+VALUES(@IdPadre,'PAN');
+
+INSERT INTO Catalogo 
+VALUES(@IdPadre,'RIPIO');
+
+INSERT INTO Catalogo 
 VALUES(@IdPadreProductos,'ARTICULOS');
 SET @IdPadre = SCOPE_IDENTITY();
 

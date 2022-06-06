@@ -1,4 +1,4 @@
-CREATE PROC [dbo].[sp_Login]
+CREATE OR ALTER PROC [dbo].[sp_Login]
 @Pass varchar(50),
 @Fecha date,
 @Hora time(2)
@@ -13,7 +13,7 @@ BEGIN TRY
 	SET @Id_credencial =
 	(SELECT cr.Id_credencial
 	FROM Usuarios us 
-	INNER JOIN Credenciales_usuarios cr ON us.Id_usuario = cr.Id_usuario
+	INNER JOIN Credenciales_usuario cr ON us.Id_usuario = cr.Id_usuario
 	WHERE cr.Password = @Pass and cr.Estado_credencial = 'ACTIVO')
 
 	--SI NO LO ENCUENTRA, RETORNA LA RESPUESTA CON EL ERROR
@@ -27,14 +27,14 @@ BEGIN TRY
 	SET @Id_usuario =
 	(SELECT us.Id_usuario
 	FROM Usuarios us 
-	INNER JOIN Credenciales_usuarios cr ON us.Id_usuario = cr.Id_usuario
+	INNER JOIN Credenciales_usuario cr ON us.Id_usuario = cr.Id_usuario
 	WHERE cr.Password = @Pass)
 
 	--OBTENER EL TIPO DE USUARIO (CARGO_EMPLEADO)
 	DECLARE @Tipo_usuario varchar(50)
 	SELECT @Tipo_usuario = ca.Nombre_tipo
 	FROM Usuarios us 
-	INNER JOIN Credenciales_usuarios cr ON us.Id_usuario = cr.Id_usuario
+	INNER JOIN Credenciales_usuario cr ON us.Id_usuario = cr.Id_usuario
 	INNER JOIN Catalogo ca ON us.Id_tipo_usuario = ca.Id_tipo
 	WHERE cr.Id_credencial = @Id_credencial
 
@@ -56,7 +56,7 @@ BEGIN TRY
 	--SI NO HAY TURNOS ANTERIORES INSERTAMOS UNO NUEVO
 	IF (@Id_turno_anterior IS NULL OR @Id_turno_anterior = 0)
 	BEGIN
-		INSERT INTO Turnos VALUES (@Fecha, @Hora, @Fecha, @Hora, 0, 0, 0, 0, 0, 0, 'ABIERTO')
+		INSERT INTO Turnos VALUES (@Fecha, @Hora, 0, 0, 0, 0, 0, 0, 'ABIERTO')
 		SET @Id_turno_actual = SCOPE_IDENTITY();
 	END
 	ELSE
@@ -76,13 +76,13 @@ BEGIN TRY
 			--EJECUTAMOS EL CERRAR TURNO DONDE CALCULARÁ LOS TOTALES
 			EXEC sp_Cerrar_turno @Id_turno_anterior
 			--INSERTAMOS EL TURNO ACTUAL
-			INSERT INTO Turnos VALUES (@Fecha, @Hora, @Fecha, @Hora, 0, 0, 0, 0, 0, 0, 'ABIERTO')
+			INSERT INTO Turnos VALUES (@Fecha, @Hora, 0, 0, 0, 0, 0, 0, 'ABIERTO')
 			SET @Id_turno_actual = SCOPE_IDENTITY();
 		END
 		ELSE IF (@Estado_turno_anterior = 'CERRADO' and @Fecha > @Fecha_turno_anterior)
 		BEGIN
 			--INSERTAMOS EL TURNO ACTUAL
-			INSERT INTO Turnos VALUES (@Fecha, @Hora, @Fecha, @Hora, 0, 0, 0, 0, 0, 0, 'ABIERTO')
+			INSERT INTO Turnos VALUES (@Fecha, @Hora, 0, 0, 0, 0, 0, 0, 'ABIERTO')
 			SET @Id_turno_actual = SCOPE_IDENTITY();
 		END
 		ELSE --IF (@Fecha = @Fecha_turno_anterior)
@@ -98,7 +98,7 @@ BEGIN TRY
 	--ENVIAMOS EL EMPLEADO QUE INGRESÓ
 	SELECT *
 	FROM Usuarios us 
-	INNER JOIN Credenciales_usuarios cr ON us.Id_usuario = cr.Id_usuario
+	INNER JOIN Credenciales_usuario cr ON us.Id_usuario = cr.Id_usuario
 	INNER JOIN Catalogo ca ON us.Id_tipo_usuario = ca.Id_tipo
 	WHERE cr.Id_credencial = @Id_credencial
 
@@ -109,7 +109,7 @@ BEGIN TRY
 	--SELECCIONAMOS LAS REGLAS DEL USUARIO
 	SELECT *
 	FROM Reglas re 
-	INNER JOIN Reglas_usuarios reus ON re.Id_regla = reus.Id_regla
+	INNER JOIN Reglas_usuario reus ON re.Id_regla = reus.Id_regla
 	INNER JOIN Usuarios us ON reus.Id_usuario = us.Id_usuario
 	WHERE reus.Id_usuario = @Id_usuario
 

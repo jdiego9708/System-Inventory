@@ -17,7 +17,11 @@ namespace ControlesCompartidos
         {
             this.ServiceInventory = ServiceDIHelper.GetService<IServiceInventory>();
         }
-
+        public async Task LoadTipoReporteProducto(ComboBox c)
+        {
+            c.Items.Add("Reporte de insumos");
+            c.Items.Add("Reporte de ventas por producto");
+        }
         public async Task LoadTipoUsuarios(ComboBox c)
         {
             (_, DataSet ds) = await this.ServiceInventory.LoadCatalogo("CATALOGO PADRE", "TIPOS DE USUARIOS");
@@ -29,7 +33,6 @@ namespace ControlesCompartidos
                 c.DisplayMember = "Nombre_tipo";
             }
         }
-
         public async Task LoadTipoProductos(ComboBox c)
         {
             (_, DataSet ds) = await this.ServiceInventory.LoadCatalogo("CATALOGO PADRE", "TIPOS DE PRODUCTOS");
@@ -41,7 +44,6 @@ namespace ControlesCompartidos
                 c.DisplayMember = "Nombre_tipo";
             }
         }
-
         public async Task LoadListGenericXIdPadre(ComboBox c, int id_catalogo)
         {
             (_, DataSet ds) = await this.ServiceInventory.LoadCatalogo("ID PADRE", id_catalogo.ToString());

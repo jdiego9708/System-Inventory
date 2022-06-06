@@ -85,7 +85,7 @@
                 {
                     ParameterName = "@Nombre_usuario",
                     SqlDbType = SqlDbType.VarChar,
-                    Size = 50,
+                    Size = 200,
                     Value = usuario.Nombre_usuario.Trim(),
                 };
                 SqlCmd.Parameters.Add(Nombre_usuario);
@@ -115,7 +115,7 @@
                 {
                     ParameterName = "@Email_usuario",
                     SqlDbType = SqlDbType.VarChar,
-                    Size = 50,
+                    Size = 200,
                     Value = usuario.Email_usuario.ToUpper().Trim(),
                 };
                 SqlCmd.Parameters.Add(Email_usuario);

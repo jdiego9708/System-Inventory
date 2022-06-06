@@ -31,7 +31,6 @@
         {
             this.LoadProducts("COMPLETO", string.Empty);
         }
-
         public async void LoadProducts(string tipo_busqueda, string texto_busqueda)
         {
             try
@@ -43,11 +42,11 @@
                 if (ds != null)
                 {
                     DataTable dtUsuarios = ds.Tables[0];
-                    List<UserControl> controls = new List<UserControl>();
+                    List<UserControl> controls = new();
                     foreach (DataRow row in dtUsuarios.Rows)
                     {
-                        Productos pr = new Productos(row);
-                        ProductoSmall productoSmall = new ProductoSmall
+                        Productos pr = new(row);
+                        ProductoSmall productoSmall = new()
                         {
                             Producto = pr,
                         };
@@ -68,27 +67,30 @@
             }
             catch (Exception ex)
             {
-                ErrorModel error = new(ex);
-                error.CustomMessage = $"Form: {this.Name} | Método: LoadProducts() | ";
+                ErrorModel error = new(ex)
+                {
+                    CustomMessage = $"Form: {this.Name} | Método: LoadProducts() | "
+                };
                 MainViewModel.GetError(error);
             }
         }
-
         private void ProductoSmall_OnBtnPerfilClick(object sender, EventArgs e)
         {
-           
-        }
+            Productos producto = (Productos)sender;
+            FrmPerfilProducto perfilProducto = new()
+            {
 
+            };
+
+        }
         private void ProductoSmall_OnBtnNextClick(object sender, EventArgs e)
         {
            
         }
-
         private void ProductoSmall_OnBtnEditClick(object sender, EventArgs e)
         {
            
         }
-
         private void BtnAddProduct_Click(object sender, EventArgs e)
         {
             FrmAddProduct frmAddProduct = new()
@@ -102,7 +104,6 @@
             container.Show(this.btnAddProduct);
             frmAddProduct.Show();
         }
-
         private void FrmAddProduct_OnProductSuccess(object sender, EventArgs e)
         {
             this.LoadProducts("COMPLETO", string.Empty);
